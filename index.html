@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CHICHI 的个人站，记录作品、实验、思考与正在生长的长期项目。">
+    <meta name="theme-color" content="#f4ecd8">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CHICHI | 个人站">
+    <meta property="og:description" content="CHICHI 的公开工作台：作品、实验、方法论和长期项目。">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>CHICHI | 个人站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2313130f'/%3E%3Cpath d='M14 42V18h9l9 16 9-16h9v24h-8V29L35 42h-6l-7-13v13z' fill='%23f7c948'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <div class="site-grain" aria-hidden="true"></div>
+    <div class="cursor-spotlight" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+        <nav class="nav-shell" aria-label="主导航">
+            <a class="brand" href="#top" aria-label="回到首页">
+                <span class="brand-mark">M</span>
+                <span class="brand-copy">
+                    <span data-site-name>CHICHI</span>
+                    <small>Personal Field Notes</small>
+                </span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+                <span>菜单</span>
+                <i aria-hidden="true"></i>
+            </button>
+            <div class="nav-links" id="site-menu">
+                <a href="#work">作品</a>
+                <a href="#system">能力</a>
+                <a href="#notes">记录</a>
+                <a href="#contact">联系</a>
+            </div>
+        </nav>
+        <div class="scroll-meter" aria-hidden="true"><span data-scroll-meter></span></div>
+    </header>
+
+    <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="hero-art" aria-hidden="true">
+                <span class="orbit orbit-one"></span>
+                <span class="orbit orbit-two"></span>
+                <span class="orbit orbit-three"></span>
+            </div>
+            <div class="hero-layout section-pad">
+                <div class="hero-copy">
+                    <p class="eyebrow reveal">AI Native Builder / Independent Studio</p>
+                    <h1 id="hero-title" class="hero-title reveal">
+                        把想法，<br>
+                        做成可以被世界访问的东西。
+                    </h1>
+                    <p class="hero-lead reveal">
+                        这里是我的个人站：收纳作品、实验、方法论和正在生长的长期项目。它不是一张静态名片，而是一座持续更新的公开工作台。
+                    </p>
+                    <div class="hero-actions reveal" aria-label="主要操作">
+                        <a class="button primary" href="#work">看作品</a>
+                        <a class="button ghost" href="#contact">建立连接</a>
+                    </div>
+                </div>
+
+                <aside class="hero-panel reveal" data-tilt aria-label="站点状态">
+                    <div class="panel-topline">
+                        <span class="live-dot"></span>
+                        <span>Live on GitHub Pages</span>
+                    </div>
+                    <div class="panel-title">Ship Log</div>
+                    <dl class="metric-grid">
+                        <div>
+                            <dt>Launch</dt>
+                            <dd><span data-count="2026">0</span></dd>
+                        </div>
+                        <div>
+                            <dt>Stack</dt>
+                            <dd>Static</dd>
+                        </div>
+                        <div>
+                            <dt>Build</dt>
+                            <dd><span data-count="0">0</span> deps</dd>
+                        </div>
+                        <div>
+                            <dt>Mode</dt>
+                            <dd>Open</dd>
+                        </div>
+                    </dl>
+                    <div class="terminal-card" aria-label="部署命令示例">
+                        <span>$ git push origin main</span>
+                        <span class="terminal-output">Pages deploys automatically.</span>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="ticker" aria-label="站点关键词">
+            <div class="ticker-track">
+                <span>Portfolio</span><span>GitHub Pages</span><span>AI Workflow</span><span>Product Thinking</span><span>Design Systems</span><span>Personal Knowledge</span>
+                <span aria-hidden="true">Portfolio</span><span aria-hidden="true">GitHub Pages</span><span aria-hidden="true">AI Workflow</span><span aria-hidden="true">Product Thinking</span><span aria-hidden="true">Design Systems</span><span aria-hidden="true">Personal Knowledge</span>
+            </div>
+        </section>
+
+        <section class="section-pad work-section" id="work" aria-labelledby="work-title">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Selected Work</p>
+                <h2 id="work-title">作品不是展示柜，是进化中的证据。</h2>
+            </div>
+            <div class="work-grid">
+                <article class="work-card featured reveal" data-spotlight data-tilt>
+                    <div class="work-index">01</div>
+                    <div>
+                        <p class="work-kicker">Personal Site</p>
+                        <h3>个人站 V1：公开工作台</h3>
+                        <p>用纯 HTML、CSS、JavaScript 构建，可直接部署到 GitHub Pages。包含 SEO、响应式布局、动效、项目叙事和发布自动化。</p>
+                    </div>
+                    <a class="work-link" href="#top" aria-label="查看个人站 V1">正在浏览</a>
+                </article>
+
+                <article class="work-card reveal" data-spotlight data-tilt>
+                    <div class="work-index">02</div>
+                    <div>
+                        <p class="work-kicker">AI Tooling</p>
+                        <h3>AI 小工具集</h3>
+                        <p>把重复操作封装成小而锋利的工具：文本整理、资料提炼、页面生成、自动化脚本。</p>
+                    </div>
+                    <span class="pill">Building</span>
+                </article>
+
+                <article class="work-card reveal" data-spotlight data-tilt>
+                    <div class="work-index">03</div>
+                    <div>
+                        <p class="work-kicker">Knowledge Base</p>
+                        <h3>个人知识图谱</h3>
+                        <p>沉淀阅读、问题、项目和决策，形成可检索、可复用、可继续生长的个人操作系统。</p>
+                    </div>
+                    <span class="pill">Research</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-pad system-section" id="system" aria-labelledby="system-title">
+            <div class="system-layout">
+                <div class="section-heading sticky-heading reveal">
+                    <p class="eyebrow">Operating System</p>
+                    <h2 id="system-title">我的工作方式：快，但不粗糙。</h2>
+                    <p>用 AI 放大速度，用工程约束保证质量。每个想法都经过从问题、原型、上线到复盘的闭环。</p>
+                </div>
+                <div class="capability-list">
+                    <article class="capability reveal">
+                        <span>01</span>
+                        <h3>把模糊想法变成产品原型</h3>
+                        <p>快速拆解目标、用户场景和最小可行版本，先做出能被真实使用的东西。</p>
+                    </article>
+                    <article class="capability reveal">
+                        <span>02</span>
+                        <h3>把视觉做成系统，而不是装饰</h3>
+                        <p>通过字体、色彩、节奏、留白和动效建立统一语气，让页面有辨识度。</p>
+                    </article>
+                    <article class="capability reveal">
+                        <span>03</span>
+                        <h3>把上线当作工作流的一部分</h3>
+                        <p>默认具备部署脚本、发布说明、可访问性与移动端验证，减少从完成到公开的摩擦。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad notes-section" id="notes" aria-labelledby="notes-title">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Field Notes</p>
+                <h2 id="notes-title">最近在研究什么。</h2>
+            </div>
+            <div class="notes-grid">
+                <article class="note reveal">
+                    <time datetime="2026-06">2026.06</time>
+                    <h3>个人站应该像一个正在运行的系统</h3>
+                    <p>不是堆满履历，而是让访问者快速理解：我在做什么、我如何思考、我能交付什么。</p>
+                </article>
+                <article class="note reveal">
+                    <time datetime="2026-06">2026.06</time>
+                    <h3>AI 协作的关键不是提问，而是验收</h3>
+                    <p>好的流程会让 AI 输出被测试、被审查、被迭代，最终沉淀成稳定资产。</p>
+                </article>
+                <article class="note reveal">
+                    <time datetime="2026-06">2026.06</time>
+                    <h3>静态站依然是最可靠的起点</h3>
+                    <p>零服务端、低维护、可缓存、可迁移。先让世界访问，再逐步加入更复杂的能力。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-pad contact-section" id="contact" aria-labelledby="contact-title">
+            <div class="contact-card reveal" data-spotlight>
+                <div>
+                    <p class="eyebrow">Contact</p>
+                    <h2 id="contact-title">有想法，就把它推进一步。</h2>
+                    <p>如果你想交流项目、合作、或者只是看看我下一步会做什么，可以从 GitHub 找到我。</p>
+                </div>
+                <div class="contact-actions">
+                    <a class="contact-link" data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">
+                        <span>GitHub</span>
+                        <strong data-github-text>@dh666i</strong>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong data-site-name>CHICHI</strong>
+            <span>Built for the open web.</span>
+        </div>
+        <span>© <span data-year>2026</span></span>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "CHICHI",
+        "url": "https://dh666i.github.io/",
+        "sameAs": ["https://github.com/dh666i"]
+    }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
