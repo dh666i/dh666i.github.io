@@ -1,54 +1,27 @@
-﻿# CHICHI Personal Site
+﻿# CHICHI Web Visual Lab
 
-一个零依赖、可直接部署到 GitHub Pages 的个人站。当前版本包含：
+一个为视觉竞赛方向升级的零依赖静态网站。当前版本聚焦：
 
-- 响应式首页、作品、能力、记录、联系区块
-- SEO / Open Graph / Twitter Card 基础元信息
-- 可访问性跳转链接、移动端菜单、滚动进度、进入动画
-- 纯静态 HTML、CSS、JavaScript，无需构建步骤
-- GitHub Actions 自动部署到 GitHub Pages
+- 生成式 Canvas 粒子流场
+- 磁吸指针与自定义光标
+- 滚动进度与滚动叙事
+- 3D 倾斜卡片与聚光灯 hover
+- 玻璃 HUD、扫描线、噪声纹理和霓虹视觉系统
+- GitHub Pages 直接部署，无需构建步骤
 
 ## 本地预览
-
-在当前目录运行任意静态服务器，例如：
 
 ```powershell
 python -m http.server 4173
 ```
 
-然后访问：
+访问：
 
 ```text
 http://localhost:4173
 ```
 
-## 修改个人信息
-
-主要内容在这些文件中：
-
-- `index.html`：页面文案、SEO 信息、作品和记录内容
-- `styles.css`：视觉风格、布局、响应式样式
-- `script.js`：站点名、GitHub 链接和交互逻辑
-
-`script.js` 顶部的个人信息：
-
-```js
-const profile = {
-    siteName: 'CHICHI',
-    github: 'https://github.com/dh666i',
-    githubLabel: '@dh666i'
-};
-```
-
-## 部署到 GitHub Pages
-
-当前目标仓库：
-
-```text
-https://github.com/dh666i/dh666i.github.io
-```
-
-发布地址：
+## 发布地址
 
 ```text
 https://dh666i.github.io/

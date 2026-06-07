@@ -3,222 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CHICHI 的个人站，记录作品、实验、思考与正在生长的长期项目。">
-    <meta name="theme-color" content="#f4ecd8">
+    <meta name="description" content="CHICHI 的炫技型个人站：生成式画布、滚动叙事、磁吸交互、3D 卡片和高强度视觉系统。">
+    <meta name="theme-color" content="#05040a">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="CHICHI | 个人站">
-    <meta property="og:description" content="CHICHI 的公开工作台：作品、实验、方法论和长期项目。">
+    <meta property="og:title" content="CHICHI | Web Visual Lab">
+    <meta property="og:description" content="一个为全球 Web 视觉竞赛打造的生成式交互个人站。">
     <meta property="og:locale" content="zh_CN">
     <meta name="twitter:card" content="summary_large_image">
-    <title>CHICHI | 个人站</title>
+    <title>CHICHI | Web Visual Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2313130f'/%3E%3Cpath d='M14 42V18h9l9 16 9-16h9v24h-8V29L35 42h-6l-7-13v13z' fill='%23f7c948'/%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%2305040a'/%3E%3Cpath d='M12 42V22h8v20zm12 0 8-22 8 22h-7l-1-4h-8l-1 4zm2-10h4l-2-7zm18 10V22h8v20z' fill='%23f8ff4a'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
-    <div class="site-grain" aria-hidden="true"></div>
-    <div class="cursor-spotlight" aria-hidden="true"></div>
+
+    <canvas class="field-canvas" data-field aria-hidden="true"></canvas>
+    <div class="noise-layer" aria-hidden="true"></div>
+    <div class="scan-layer" aria-hidden="true"></div>
+    <div class="cursor-core" data-cursor aria-hidden="true"></div>
+    <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
 
     <header class="site-header" data-header>
         <nav class="nav-shell" aria-label="主导航">
-            <a class="brand" href="#top" aria-label="回到首页">
-                <span class="brand-mark">M</span>
-                <span class="brand-copy">
-                    <span data-site-name>CHICHI</span>
-                    <small>Personal Field Notes</small>
+            <a class="brand magnetic" href="#top" aria-label="回到首页">
+                <span class="brand-glyph">C</span>
+                <span class="brand-text">
+                    <strong>CHICHI</strong>
+                    <small>WEB VISUAL LAB</small>
                 </span>
             </a>
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-                <span>菜单</span>
+            <button class="menu-toggle magnetic" type="button" aria-expanded="false" aria-controls="site-menu">
+                <span>Menu</span>
                 <i aria-hidden="true"></i>
             </button>
             <div class="nav-links" id="site-menu">
-                <a href="#work">作品</a>
-                <a href="#system">能力</a>
-                <a href="#notes">记录</a>
-                <a href="#contact">联系</a>
+                <a class="magnetic" href="#vision">Vision</a>
+                <a class="magnetic" href="#craft">Craft</a>
+                <a class="magnetic" href="#arena">Arena</a>
+                <a class="magnetic" href="#contact">GitHub</a>
             </div>
         </nav>
-        <div class="scroll-meter" aria-hidden="true"><span data-scroll-meter></span></div>
+        <div class="scroll-track" aria-hidden="true"><span data-scroll-meter></span></div>
     </header>
 
     <main id="main">
         <section class="hero" id="top" aria-labelledby="hero-title">
-            <div class="hero-art" aria-hidden="true">
-                <span class="orbit orbit-one"></span>
-                <span class="orbit orbit-two"></span>
-                <span class="orbit orbit-three"></span>
+            <div class="hero-orbits" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <div class="hero-layout section-pad">
+            <div class="hero-grid section-shell">
                 <div class="hero-copy">
-                    <p class="eyebrow reveal">AI Native Builder / Independent Studio</p>
-                    <h1 id="hero-title" class="hero-title reveal">
-                        把想法，<br>
-                        做成可以被世界访问的东西。
+                    <p class="eyebrow reveal">CHICHI / Experimental Web Interface / 2026</p>
+                    <h1 id="hero-title" class="hero-title reveal" data-split-title>
+                        <span>VISUAL</span>
+                        <span>OVERCLOCK</span>
                     </h1>
                     <p class="hero-lead reveal">
-                        这里是我的个人站：收纳作品、实验、方法论和正在生长的长期项目。它不是一张静态名片，而是一座持续更新的公开工作台。
+                        这不是作品集模板，而是一台跑在浏览器里的视觉引擎：生成式粒子、滚动叙事、磁吸指针、3D 卡片、玻璃折射和节奏化排版同时工作。
                     </p>
-                    <div class="hero-actions reveal" aria-label="主要操作">
-                        <a class="button primary" href="#work">看作品</a>
-                        <a class="button ghost" href="#contact">建立连接</a>
+                    <div class="hero-actions reveal">
+                        <a class="button button-hot magnetic" href="#vision">进入视觉场</a>
+                        <button class="button button-line magnetic" type="button" data-intensity-toggle>切换能量模式</button>
                     </div>
                 </div>
 
-                <aside class="hero-panel reveal" data-tilt aria-label="站点状态">
-                    <div class="panel-topline">
-                        <span class="live-dot"></span>
-                        <span>Live on GitHub Pages</span>
+                <aside class="command-deck reveal" data-tilt aria-label="实时视觉参数">
+                    <div class="deck-chrome">
+                        <span></span><span></span><span></span>
+                        <em>runtime.chichi</em>
                     </div>
-                    <div class="panel-title">Ship Log</div>
-                    <dl class="metric-grid">
+                    <div class="deck-radar" aria-hidden="true">
+                        <span class="radar-sweep"></span>
+                        <i></i><i></i><i></i><i></i>
+                    </div>
+                    <dl class="deck-stats">
                         <div>
-                            <dt>Launch</dt>
-                            <dd><span data-count="2026">0</span></dd>
+                            <dt>Particles</dt>
+                            <dd data-live-particles>144</dd>
                         </div>
                         <div>
-                            <dt>Stack</dt>
-                            <dd>Static</dd>
+                            <dt>Pointer</dt>
+                            <dd data-pointer-state>Idle</dd>
                         </div>
                         <div>
-                            <dt>Build</dt>
-                            <dd><span data-count="0">0</span> deps</dd>
-                        </div>
-                        <div>
-                            <dt>Mode</dt>
-                            <dd>Open</dd>
+                            <dt>Motion</dt>
+                            <dd data-motion-state>High</dd>
                         </div>
                     </dl>
-                    <div class="terminal-card" aria-label="部署命令示例">
-                        <span>$ git push origin main</span>
-                        <span class="terminal-output">Pages deploys automatically.</span>
-                    </div>
+                    <p>Move your cursor. Scroll slowly. The interface bends back.</p>
                 </aside>
             </div>
-        </section>
-
-        <section class="ticker" aria-label="站点关键词">
-            <div class="ticker-track">
-                <span>Portfolio</span><span>GitHub Pages</span><span>AI Workflow</span><span>Product Thinking</span><span>Design Systems</span><span>Personal Knowledge</span>
-                <span aria-hidden="true">Portfolio</span><span aria-hidden="true">GitHub Pages</span><span aria-hidden="true">AI Workflow</span><span aria-hidden="true">Product Thinking</span><span aria-hidden="true">Design Systems</span><span aria-hidden="true">Personal Knowledge</span>
+            <div class="hero-marquee" aria-hidden="true">
+                <span>GENERATIVE CANVAS</span><span>MAGNETIC UI</span><span>SCROLL CINEMA</span><span>GLASS MORPHISM</span><span>3D HOVER</span>
             </div>
         </section>
 
-        <section class="section-pad work-section" id="work" aria-labelledby="work-title">
-            <div class="section-heading reveal">
-                <p class="eyebrow">Selected Work</p>
-                <h2 id="work-title">作品不是展示柜，是进化中的证据。</h2>
+        <section class="vision-section section-shell" id="vision" aria-labelledby="vision-title">
+            <div class="section-kicker reveal">Vision</div>
+            <div class="vision-layout">
+                <h2 id="vision-title" class="section-title reveal">让评委先失语，再开始看细节。</h2>
+                <p class="section-lead reveal">我把页面设计成一个有层次的舞台：远景是生成式流场，中景是玻璃和扫描线，近景是跟手的交互反馈。视觉不只是装饰，而是每一次滚动、悬停、点击都会发生的响应。</p>
             </div>
-            <div class="work-grid">
-                <article class="work-card featured reveal" data-spotlight data-tilt>
-                    <div class="work-index">01</div>
-                    <div>
-                        <p class="work-kicker">Personal Site</p>
-                        <h3>个人站 V1：公开工作台</h3>
-                        <p>用纯 HTML、CSS、JavaScript 构建，可直接部署到 GitHub Pages。包含 SEO、响应式布局、动效、项目叙事和发布自动化。</p>
-                    </div>
-                    <a class="work-link" href="#top" aria-label="查看个人站 V1">正在浏览</a>
+            <div class="cinema-strip reveal" data-horizontal>
+                <article data-tilt>
+                    <span>01</span>
+                    <h3>First Impact</h3>
+                    <p>超大字重、霓虹梯度、实时画布，把第一屏做成能截图传播的视觉锤。</p>
                 </article>
-
-                <article class="work-card reveal" data-spotlight data-tilt>
-                    <div class="work-index">02</div>
-                    <div>
-                        <p class="work-kicker">AI Tooling</p>
-                        <h3>AI 小工具集</h3>
-                        <p>把重复操作封装成小而锋利的工具：文本整理、资料提炼、页面生成、自动化脚本。</p>
-                    </div>
-                    <span class="pill">Building</span>
+                <article data-tilt>
+                    <span>02</span>
+                    <h3>Responsive Physics</h3>
+                    <p>指针不是鼠标，是力场。按钮、卡片、粒子都会对它做出不同层级的反应。</p>
                 </article>
-
-                <article class="work-card reveal" data-spotlight data-tilt>
-                    <div class="work-index">03</div>
-                    <div>
-                        <p class="work-kicker">Knowledge Base</p>
-                        <h3>个人知识图谱</h3>
-                        <p>沉淀阅读、问题、项目和决策，形成可检索、可复用、可继续生长的个人操作系统。</p>
-                    </div>
-                    <span class="pill">Research</span>
+                <article data-tilt>
+                    <span>03</span>
+                    <h3>Scroll Direction</h3>
+                    <p>滚动改变导航、进度条、文字入场和视觉密度，让页面有镜头语言。</p>
                 </article>
             </div>
         </section>
 
-        <section class="section-pad system-section" id="system" aria-labelledby="system-title">
-            <div class="system-layout">
-                <div class="section-heading sticky-heading reveal">
-                    <p class="eyebrow">Operating System</p>
-                    <h2 id="system-title">我的工作方式：快，但不粗糙。</h2>
-                    <p>用 AI 放大速度，用工程约束保证质量。每个想法都经过从问题、原型、上线到复盘的闭环。</p>
+        <section class="craft-section" id="craft" aria-labelledby="craft-title">
+            <div class="section-shell craft-grid">
+                <div class="craft-heading reveal">
+                    <p class="section-kicker">Craft</p>
+                    <h2 id="craft-title" class="section-title">顶级 Web 炫技，不靠堆素材。</h2>
+                    <p class="section-lead">全部在静态页面内完成。没有构建步骤，没有后端，只有 HTML、CSS、JavaScript 和对浏览器渲染能力的压榨。</p>
                 </div>
-                <div class="capability-list">
-                    <article class="capability reveal">
-                        <span>01</span>
-                        <h3>把模糊想法变成产品原型</h3>
-                        <p>快速拆解目标、用户场景和最小可行版本，先做出能被真实使用的东西。</p>
+                <div class="craft-stack">
+                    <article class="craft-card reveal" data-spotlight data-tilt>
+                        <div class="craft-number">A</div>
+                        <h3>Generative Field</h3>
+                        <p>Canvas 粒子流场根据指针和滚动速度实时重绘，首屏天然动态。</p>
                     </article>
-                    <article class="capability reveal">
-                        <span>02</span>
-                        <h3>把视觉做成系统，而不是装饰</h3>
-                        <p>通过字体、色彩、节奏、留白和动效建立统一语气，让页面有辨识度。</p>
+                    <article class="craft-card reveal" data-spotlight data-tilt>
+                        <div class="craft-number">B</div>
+                        <h3>Kinetic Typography</h3>
+                        <p>超大标题、混合模式、文字阴影和分段揭示，制造竞赛级视觉记忆点。</p>
                     </article>
-                    <article class="capability reveal">
-                        <span>03</span>
-                        <h3>把上线当作工作流的一部分</h3>
-                        <p>默认具备部署脚本、发布说明、可访问性与移动端验证，减少从完成到公开的摩擦。</p>
+                    <article class="craft-card reveal" data-spotlight data-tilt>
+                        <div class="craft-number">C</div>
+                        <h3>Interaction Layer</h3>
+                        <p>磁吸按钮、3D 倾斜、聚光灯卡片和可切换能量模式，让页面不是静止海报。</p>
+                    </article>
+                    <article class="craft-card reveal" data-spotlight data-tilt>
+                        <div class="craft-number">D</div>
+                        <h3>Deployable Art</h3>
+                        <p>GitHub Pages 直接托管，移动端降级合理，减少炫技和访问稳定性的冲突。</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section-pad notes-section" id="notes" aria-labelledby="notes-title">
-            <div class="section-heading reveal">
-                <p class="eyebrow">Field Notes</p>
-                <h2 id="notes-title">最近在研究什么。</h2>
+        <section class="arena-section section-shell" id="arena" aria-labelledby="arena-title">
+            <div class="arena-header reveal">
+                <p class="section-kicker">Arena</p>
+                <h2 id="arena-title" class="section-title">四个可以继续进化的视觉赛道。</h2>
             </div>
-            <div class="notes-grid">
-                <article class="note reveal">
-                    <time datetime="2026-06">2026.06</time>
-                    <h3>个人站应该像一个正在运行的系统</h3>
-                    <p>不是堆满履历，而是让访问者快速理解：我在做什么、我如何思考、我能交付什么。</p>
-                </article>
-                <article class="note reveal">
-                    <time datetime="2026-06">2026.06</time>
-                    <h3>AI 协作的关键不是提问，而是验收</h3>
-                    <p>好的流程会让 AI 输出被测试、被审查、被迭代，最终沉淀成稳定资产。</p>
-                </article>
-                <article class="note reveal">
-                    <time datetime="2026-06">2026.06</time>
-                    <h3>静态站依然是最可靠的起点</h3>
-                    <p>零服务端、低维护、可缓存、可迁移。先让世界访问，再逐步加入更复杂的能力。</p>
-                </article>
+            <div class="arena-grid">
+                <a class="arena-card reveal" data-spotlight data-tilt href="#top">
+                    <span>01 / HERO ENGINE</span>
+                    <h3>生成式首屏</h3>
+                    <p>用代码生成背景，而不是放一张背景图。</p>
+                    <b>Open</b>
+                </a>
+                <a class="arena-card reveal" data-spotlight data-tilt href="#craft">
+                    <span>02 / MOTION SYSTEM</span>
+                    <h3>动效系统</h3>
+                    <p>滚动、悬停、聚焦和点击共享同一套速度语言。</p>
+                    <b>Inspect</b>
+                </a>
+                <a class="arena-card reveal" data-spotlight data-tilt href="#vision">
+                    <span>03 / TYPE STAGE</span>
+                    <h3>字体舞台</h3>
+                    <p>用排版做冲击，用留白做呼吸。</p>
+                    <b>View</b>
+                </a>
+                <a class="arena-card reveal" data-spotlight data-tilt href="#contact">
+                    <span>04 / LIVE DEPLOY</span>
+                    <h3>公网发布</h3>
+                    <p>作品必须能被打开、被分享、被评审。</p>
+                    <b>Ship</b>
+                </a>
             </div>
         </section>
 
-        <section class="section-pad contact-section" id="contact" aria-labelledby="contact-title">
-            <div class="contact-card reveal" data-spotlight>
-                <div>
-                    <p class="eyebrow">Contact</p>
-                    <h2 id="contact-title">有想法，就把它推进一步。</h2>
-                    <p>如果你想交流项目、合作、或者只是看看我下一步会做什么，可以从 GitHub 找到我。</p>
-                </div>
-                <div class="contact-actions">
-                    <a class="contact-link" data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">
-                        <span>GitHub</span>
-                        <strong data-github-text>@dh666i</strong>
-                    </a>
-                </div>
+        <section class="contact-section section-shell" id="contact" aria-labelledby="contact-title">
+            <div class="contact-panel reveal" data-spotlight>
+                <p class="section-kicker">Final</p>
+                <h2 id="contact-title">CHICHI is building for the top shelf.</h2>
+                <p>下一步可以继续加 WebGL、音频响应、滚动帧动画、SVG 滤镜和真实作品案例。当前版本已经是一个可在线访问、可继续迭代的视觉竞赛底座。</p>
+                <a class="button button-hot magnetic" data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">Visit GitHub</a>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <div>
-            <strong data-site-name>CHICHI</strong>
-            <span>Built for the open web.</span>
-        </div>
-        <span>© <span data-year>2026</span></span>
+        <span>CHICHI / Web Visual Lab</span>
+        <span>Built for GitHub Pages / <span data-year>2026</span></span>
     </footer>
 
     <script type="application/ld+json">
