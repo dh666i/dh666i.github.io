@@ -1,200 +1,328 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CHICHI 的中文网页造境实验室：以中文排版、轻量流场、滚动显影和细腻交互构成的个人视觉站。">
-    <meta name="theme-color" content="#f4eddd">
+    <meta name="description" content="万物皆流 PANTA RHEI——CHICHI 为全球视觉盛宴打造的实时流体网页艺术：WebGL 流体模拟、液态巨字、五态横卷、涟漪落点与朱砂落印。">
+    <meta name="theme-color" content="#06050a">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="CHICHI｜网页造境实验室">
-    <meta property="og:description" content="中文主导的视觉与交互个人站。克制、细腻、可访问。">
+    <meta property="og:title" content="CHICHI｜万物皆流 PANTA RHEI">
+    <meta property="og:description" content="这不是一张网页，是一片实时演算的水。移动指针，搅动流光。">
     <meta property="og:locale" content="zh_CN">
     <meta name="twitter:card" content="summary_large_image">
-    <title>CHICHI｜网页造境实验室</title>
+    <title>CHICHI｜万物皆流 PANTA RHEI · 实时流体网页艺术</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@500;700;900&family=ZCOOL+XiaoWei&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2314110c'/%3E%3Cpath d='M18 18h28v6H24v16h22v6H18z' fill='%23f2dfb2'/%3E%3Cpath d='M30 28h16v6H30z' fill='%23c8321f'/%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d3392b'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23f3efe6' font-family='serif'%3E%E6%B5%81%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
+    <noscript>
+        <style>
+            .loader, .cursor-dot, .cursor-ring, .bg-fluid, .grain { display: none !important; }
+            [data-reveal] { opacity: 1 !important; transform: none !important; }
+            .mask i { transform: none !important; }
+            .manifesto { height: auto !important; }
+            .manifesto-pin { position: static !important; min-height: 0 !important; padding-block: 120px; }
+            .manifesto-text .ch, .manifesto-text { color: var(--text) !important; }
+            .manifesto-sign { opacity: 1 !important; transform: none !important; }
+            .scenes { height: auto !important; }
+            .scenes .pin { position: static !important; height: auto !important; }
+            .scenes .track { transform: none !important; flex-direction: column; padding: 0 var(--pad); }
+            .seal { opacity: 1 !important; transform: rotate(-8deg) !important; }
+            body { overflow: auto !important; }
+        </style>
+    </noscript>
 </head>
-<body>
+<body class="is-loading">
     <a class="skip-link" href="#main">跳到主要内容</a>
-    <canvas class="ink-canvas" data-ink aria-hidden="true"></canvas>
-    <div class="paper-grain" aria-hidden="true"></div>
-    <div class="cursor-aura" data-cursor-aura aria-hidden="true"></div>
 
-    <header class="site-header">
-        <nav class="nav-shell" aria-label="主导航">
-            <a class="brand magnetic" href="#top" aria-label="回到首页">
-                <span class="brand-seal">迟</span>
-                <span>
-                    <strong>CHICHI</strong>
-                    <small>网页造境实验室</small>
-                </span>
-            </a>
-            <button class="menu-toggle magnetic" type="button" aria-expanded="false" aria-controls="site-menu">
-                <span>菜单</span>
-                <i aria-hidden="true"></i>
-            </button>
-            <div class="nav-links" id="site-menu">
-                <a class="magnetic" href="#opening">开场</a>
-                <a class="magnetic" href="#craft">技法</a>
-                <a class="magnetic" href="#scenes">场景</a>
-                <a class="magnetic" href="#rules">准则</a>
-                <a class="magnetic" href="#publish">发布</a>
+    <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+        <filter id="liquid" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.007 0.011" numOctaves="2" seed="7" result="noise">
+                <animate attributeName="baseFrequency" dur="18s" values="0.007 0.011;0.011 0.016;0.007 0.011" repeatCount="indefinite"/>
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="30" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+    </svg>
+
+    <div class="loader" data-loader aria-hidden="true">
+        <div class="loader-curtain loader-curtain-top"></div>
+        <div class="loader-curtain loader-curtain-bottom"></div>
+        <div class="loader-core">
+            <span class="loader-seal">流</span>
+            <div class="loader-track"><i data-loader-bar></i></div>
+            <div class="loader-meta">
+                <span>引水入境</span>
+                <span data-loader-count>00</span>
             </div>
+        </div>
+    </div>
+
+    <canvas class="bg-fluid" data-fluid aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
+    <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><i data-progress></i></div>
+
+    <header class="site-header" data-header>
+        <a class="brand magnetic" href="#top" aria-label="回到顶部">
+            <span class="brand-seal" aria-hidden="true">流</span>
+            <span class="brand-text">
+                <strong>CHICHI</strong>
+                <small>万物皆流</small>
+            </span>
+        </a>
+        <nav class="nav-links" aria-label="主导航">
+            <a href="#yuan" data-scramble>源</a>
+            <a href="#liu" data-scramble>流</a>
+            <a href="#yan" data-scramble>验</a>
+            <a href="#guan" data-scramble>观</a>
+            <a href="#yin" data-scramble>印</a>
         </nav>
-        <div class="progress-line" aria-hidden="true"><span data-scroll-meter></span></div>
+        <div class="header-side">
+            <span class="clock" aria-label="北京时间">京 <b data-clock>--:--:--</b></span>
+            <a class="gh magnetic" data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="打开菜单">
+                <i></i><i></i>
+            </button>
+        </div>
     </header>
 
+    <div class="menu" id="menu" data-menu aria-hidden="true">
+        <nav class="menu-links" aria-label="全屏导航">
+            <a href="#yuan"><em>〇一</em><span>源</span><small>ORIGIN</small></a>
+            <a href="#liu"><em>〇二</em><span>流</span><small>FIVE STATES</small></a>
+            <a href="#yan"><em>〇三</em><span>验</span><small>THE LAB</small></a>
+            <a href="#guan"><em>〇四</em><span>观</span><small>WAYS OF SEEING</small></a>
+            <a href="#yin"><em>〇五</em><span>印</span><small>SEAL</small></a>
+        </nav>
+        <div class="menu-foot">
+            <a data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer"><span data-github-text>@dh666i</span></a>
+            <span>北京时间 <b data-clock>--:--:--</b></span>
+        </div>
+    </div>
+
     <main id="main">
-        <section class="hero section-shell" id="top" aria-labelledby="hero-title">
-            <div class="hero-meta reveal">
-                <span>二〇二六</span>
-                <span>中文视觉站</span>
-                <span>公网已发布</span>
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <p class="hero-kicker r-up" data-reveal>CHICHI · 实时流体网页艺术</p>
+            <ul class="hero-meta r-up" data-reveal>
+                <li>二〇二六</li>
+                <li>实时流体引擎</li>
+                <li>全球视觉盛宴 · 参赛作品</li>
+            </ul>
+            <h1 class="hero-title" id="hero-title" aria-label="万物皆流">
+                <span class="hero-char" style="--fd:0s" aria-hidden="true"><span class="mask"><i style="--d:.08s">万</i></span></span>
+                <span class="hero-char" style="--fd:-3s" aria-hidden="true"><span class="mask"><i style="--d:.18s">物</i></span></span>
+                <span class="hero-char" style="--fd:-6s" aria-hidden="true"><span class="mask"><i style="--d:.28s">皆</i></span></span>
+                <span class="hero-char" style="--fd:-9s" aria-hidden="true"><span class="mask"><i style="--d:.38s">流</i></span></span>
+            </h1>
+            <p class="hero-en r-up" data-reveal>PANTA RHEI — EVERYTHING FLOWS · NOTHING STANDS STILL</p>
+            <p class="hero-lead r-up" data-reveal>
+                这不是一张静态页面，而是一片实时演算的水。WebGL 在屏幕底层解算流体方程——你的每一次移动、每一次点击，都会在夜色里留下流光。
+            </p>
+            <div class="hero-actions r-up" data-reveal>
+                <a class="btn primary magnetic" href="#yuan">入水</a>
+                <a class="btn ghost magnetic" data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">看源码 ↗</a>
             </div>
-            <div class="hero-grid">
-                <div class="hero-copy">
-                    <p class="eyebrow reveal">以中文排版，建立网页气场。</p>
-                    <h1 class="hero-title reveal" id="hero-title">
-                        <span>网页</span>
-                        <span>造境</span>
-                        <span>实验室</span>
-                    </h1>
-                    <p class="hero-lead reveal">
-                        以中文排版、纸感层次、轻量流场与细腻交互，构成一个可阅读、可停留、可被记住的个人视觉空间。
-                    </p>
-                    <div class="hero-actions reveal">
-                        <a class="button primary magnetic" href="#craft">看技法</a>
-                        <a class="button quiet magnetic" data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">代码主页</a>
-                    </div>
-                </div>
+            <p class="hero-hint r-up" data-reveal><i aria-hidden="true"></i>移动指针，搅动这片水 · MOVE TO STIR</p>
 
-                <aside class="hero-stage reveal" data-tilt aria-label="视觉舞台">
-                    <div class="stage-card stage-card-a">
-                        <span>层</span>
-                        <strong>流场</strong>
-                    </div>
-                    <div class="stage-card stage-card-b">
-                        <span>字</span>
-                        <strong>中文</strong>
-                    </div>
-                    <div class="stage-card stage-card-c">
-                        <span>动</span>
-                        <strong>克制</strong>
-                    </div>
-                    <div class="stage-orb" aria-hidden="true"></div>
-                </aside>
-            </div>
+            <span class="hero-ghost" aria-hidden="true">水</span>
+            <span class="hero-vert hero-vert-l" aria-hidden="true">上善若水</span>
+            <span class="hero-vert hero-vert-r" aria-hidden="true">周行而不殆</span>
+            <svg class="orbit" viewBox="0 0 140 140" aria-hidden="true">
+                <defs>
+                    <path id="orbit-path" d="M70 70 m -52 0 a 52 52 0 1 1 104 0 a 52 52 0 1 1 -104 0"></path>
+                </defs>
+                <text class="orbit-text"><textPath href="#orbit-path">PANTA RHEI · 万物皆流 · CHICHI · MMXXVI · </textPath></text>
+                <circle class="orbit-dot" cx="70" cy="70" r="2.5"></circle>
+            </svg>
+            <a class="scroll-hint" href="#yuan" aria-label="向下滚动，顺流而下">
+                <span>顺流而下</span>
+                <i aria-hidden="true"></i>
+            </a>
         </section>
 
-        <section class="ribbon" aria-label="能力关键词">
+        <div class="ribbon" aria-hidden="true">
             <div class="ribbon-track">
-                <span>中文排版</span><span>滚动显影</span><span>轻量流场</span><span>磁吸反馈</span><span>玻璃分层</span><span>移动端稳态</span>
-                <span aria-hidden="true">中文排版</span><span aria-hidden="true">滚动显影</span><span aria-hidden="true">轻量流场</span><span aria-hidden="true">磁吸反馈</span><span aria-hidden="true">玻璃分层</span><span aria-hidden="true">移动端稳态</span>
+                <span>实时流体</span><span>墨光生长</span><span>涟漪落点</span><span>液态巨字</span><span>五态横卷</span><span>朱砂落印</span>
+                <span>实时流体</span><span>墨光生长</span><span>涟漪落点</span><span>液态巨字</span><span>五态横卷</span><span>朱砂落印</span>
+            </div>
+        </div>
+
+        <section class="manifesto" id="yuan" data-manifesto aria-labelledby="manifesto-text">
+            <div class="manifesto-pin">
+                <p class="eyebrow">第一章 · 源<span class="en">ORIGIN</span></p>
+                <p class="manifesto-text" id="manifesto-text" data-split>上善若水。我把一条<em class="hl">河</em>写进浏览器——指尖所到之处，<em class="hl">墨光生长</em>；目光停驻之地，<em class="hl">水自归静</em>。</p>
+                <p class="manifesto-sign">—— CHICHI · 写于流光之上</p>
             </div>
         </section>
 
-        <section class="section-shell opening" id="opening" aria-labelledby="opening-title">
-            <div class="split-heading">
-                <p class="eyebrow reveal">开场</p>
-                <h2 id="opening-title" class="section-title reveal">第一眼要有锋芒，第二眼要有秩序。</h2>
-                <p class="section-lead reveal">页面从第一屏开始建立节奏：大标题给出气势，内容卡片保持秩序，背景流场只在边缘呼吸。</p>
+        <section class="scenes" id="liu" data-horizontal aria-label="流：五态横卷">
+            <div class="pin">
+                <div class="track" data-track>
+                    <article class="panel panel-intro">
+                        <p class="eyebrow">第二章 · 流<span class="en">FIVE STATES OF FLOW</span></p>
+                        <h2 class="section-title">一水五相<br>五态横卷</h2>
+                        <p class="panel-hint">顺着滚轮，展开手卷 ⟶</p>
+                    </article>
+                    <article class="panel" style="--acc:#7dd3fc">
+                        <span class="panel-no">壹</span>
+                        <span class="panel-en">SOURCE</span>
+                        <span class="panel-glyph" aria-hidden="true">源</span>
+                        <h3>一滴落下，万象生长</h3>
+                        <p>所有形状始于一次落下。指针划过之处，墨在夜里抽枝、生长，长成只属于这一秒的图案。</p>
+                    </article>
+                    <article class="panel" style="--acc:#e8442e">
+                        <span class="panel-no">贰</span>
+                        <span class="panel-en">SURGE</span>
+                        <span class="panel-glyph" aria-hidden="true">涌</span>
+                        <h3>暗流推着光走</h3>
+                        <p>速度是看不见的手。色彩沿着你的轨迹互相追逐、彼此汇流，快一分则涌，慢一分则漫。</p>
+                    </article>
+                    <article class="panel" style="--acc:#8b5cf6">
+                        <span class="panel-no">叁</span>
+                        <span class="panel-en">VORTEX</span>
+                        <span class="panel-glyph" aria-hidden="true">漩</span>
+                        <h3>把混乱卷成秩序</h3>
+                        <p>涡旋是水的纪律。朱砂与鎏金在中心交融，搅出第三种颜色——那是只有流体才调得出的色。</p>
+                    </article>
+                    <article class="panel" style="--acc:#69d6bd">
+                        <span class="panel-no">肆</span>
+                        <span class="panel-en">STILL</span>
+                        <span class="panel-glyph" aria-hidden="true">息</span>
+                        <h3>流动的尽头是呼吸</h3>
+                        <p>你停下，水也慢下来。墨色一点点沉底，屏幕重新变深。静，是另一种流。</p>
+                    </article>
+                    <article class="panel" style="--acc:#e3a455">
+                        <span class="panel-no">伍</span>
+                        <span class="panel-en">RETURN</span>
+                        <span class="panel-glyph" aria-hidden="true">归</span>
+                        <h3>万物皆流，终将归海</h3>
+                        <p>每一次观看都汇入同一片海。卷轴合上之后，水仍在屏幕底下流。</p>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section class="section-shell craft" id="craft" aria-labelledby="craft-title">
-            <div class="craft-head reveal">
-                <p class="eyebrow">技法</p>
-                <h2 id="craft-title" class="section-title">让技术成为气质。</h2>
-            </div>
-            <div class="craft-grid">
-                <article class="craft-card reveal" data-spotlight data-tilt>
-                    <span class="card-index">一</span>
-                    <h3>流场不喧哗</h3>
-                    <p>Canvas 保持柔和线场与点光，制造空间感和呼吸感。</p>
+        <section class="craft" id="yan" aria-labelledby="craft-title">
+            <span class="wm" aria-hidden="true">水</span>
+            <header class="section-head">
+                <p class="eyebrow r-up" data-reveal>第三章 · 验<span class="en">THE LAB</span></p>
+                <h2 class="section-title r-up" data-reveal id="craft-title">以水为引，六个实验。</h2>
+            </header>
+            <div class="bento" data-stagger>
+                <article class="card card-a" data-reveal data-tilt>
+                    <span class="card-no">实验 01</span>
+                    <h3>墨 · 实时流体</h3>
+                    <p>整页背景就是它：WebGL 实时解算纳维–斯托克斯方程，128 格的速度场、双缓冲的墨色——指针即笔锋，屏幕即砚池。</p>
+                    <div class="card-demo" aria-hidden="true"><i></i><i></i><i></i></div>
+                    <span class="card-glyph" aria-hidden="true">墨</span>
                 </article>
-                <article class="craft-card reveal" data-spotlight data-tilt>
-                    <span class="card-index">二</span>
-                    <h3>中文做主角</h3>
-                    <p>导航、标题、按钮和卡片都围绕中文阅读节奏设计。</p>
+                <article class="card card-b" data-reveal data-tilt>
+                    <span class="card-no">实验 02</span>
+                    <h3>涟 · 落点成环</h3>
+                    <p>点击任意一处：涟漪荡开一圈，水面同时沉下一笔重墨。</p>
+                    <span class="card-glyph" aria-hidden="true">涟</span>
                 </article>
-                <article class="craft-card reveal" data-spotlight data-tilt>
-                    <span class="card-index">三</span>
-                    <h3>动效有边界</h3>
-                    <p>磁吸、倾斜和显影都被限制在小幅度内，靠细节传达反馈。</p>
+                <article class="card card-c" data-reveal data-tilt>
+                    <span class="card-no">实验 03</span>
+                    <h3>字 · 液态文字</h3>
+                    <p>湍流滤镜让首屏巨字像浸在水里，轮廓随波轻轻变形。</p>
+                    <span class="card-glyph" aria-hidden="true">字</span>
                 </article>
-                <article class="craft-card reveal" data-spotlight data-tilt>
-                    <span class="card-index">四</span>
-                    <h3>版面不出界</h3>
-                    <p>大字、卡片和移动端布局保持稳定边界，让视觉完整落在屏幕内。</p>
+                <article class="card card-d" data-reveal data-tilt>
+                    <span class="card-no">实验 04</span>
+                    <h3>卷 · 横向手卷</h3>
+                    <p>滚轮被译成卷轴的推进，五态逐幕展开。</p>
+                    <span class="card-glyph" aria-hidden="true">卷</span>
                 </article>
-            </div>
-        </section>
-
-        <section class="section-shell scenes" id="scenes" aria-labelledby="scenes-title">
-            <p class="eyebrow reveal">场景</p>
-            <h2 id="scenes-title" class="section-title reveal">三个层次，构成完整浏览节奏。</h2>
-            <div class="scene-stack">
-                <article class="scene reveal" data-spotlight>
-                    <div class="scene-number">01</div>
-                    <div>
-                        <h3>开屏：大字与气流</h3>
-                        <p>首屏用“网页造境实验室”建立中文记忆点，背景流场随指针轻微偏移。</p>
-                    </div>
+                <article class="card card-e" data-reveal data-tilt>
+                    <span class="card-no">实验 05</span>
+                    <h3>律 · 克制动效</h3>
+                    <p>磁吸、倾斜、显影，都收在分寸之内，从不喧宾夺主。</p>
+                    <span class="card-glyph" aria-hidden="true">律</span>
                 </article>
-                <article class="scene reveal" data-spotlight>
-                    <div class="scene-number">02</div>
-                    <div>
-                        <h3>中段：卡片与折叠</h3>
-                        <p>卡片像半透明纸片，在悬停时露出细微光斑和空间倾角。</p>
-                    </div>
-                </article>
-                <article class="scene reveal" data-spotlight>
-                    <div class="scene-number">03</div>
-                    <div>
-                        <h3>尾声：声明与发布</h3>
-                        <p>结尾收束到访问与发布，让作品从视觉体验回到真实可达。</p>
-                    </div>
+                <article class="card card-f" data-reveal data-tilt>
+                    <span class="card-no">实验 06</span>
+                    <h3>印 · 朱砂收笔</h3>
+                    <p>终幕一方印砸下来，把这一场流动盖进记忆。</p>
+                    <span class="card-glyph" aria-hidden="true">印</span>
                 </article>
             </div>
         </section>
 
-        <section class="section-shell rules" id="rules" aria-labelledby="rules-title">
-            <div class="rules-panel reveal" data-spotlight>
-                <p class="eyebrow">准则</p>
-                <h2 id="rules-title">视觉有锋芒，也要有分寸。</h2>
-                <ul>
-                    <li><span>留白</span><strong>让信息有呼吸，也让视觉有重量。</strong></li>
-                    <li><span>节奏</span><strong>滚动、停顿、显影形成连续的观看路径。</strong></li>
-                    <li><span>稳定</span><strong>在桌面和移动端都保持完整、清晰、可访问。</strong></li>
-                </ul>
-            </div>
+        <section class="rules" id="guan" aria-labelledby="rules-title">
+            <span class="wm wm-left" aria-hidden="true">观</span>
+            <header class="section-head">
+                <p class="eyebrow r-up" data-reveal>第四章 · 观<span class="en">WAYS OF SEEING</span></p>
+                <h2 class="section-title r-up" data-reveal id="rules-title">观水，四则。</h2>
+            </header>
+            <ul class="rule-list" data-stagger>
+                <li data-reveal>
+                    <em>〇一</em>
+                    <strong>形</strong>
+                    <span>水无常形，版式有骨。布局可以流动，秩序不能涣散。</span>
+                    <b aria-hidden="true">⟶</b>
+                </li>
+                <li data-reveal>
+                    <em>〇二</em>
+                    <strong>势</strong>
+                    <span>让视线顺流而下。滚动是河道，信息是漂流的灯。</span>
+                    <b aria-hidden="true">⟶</b>
+                </li>
+                <li data-reveal>
+                    <em>〇三</em>
+                    <strong>静</strong>
+                    <span>留白是水面。说得越少，倒影越清。</span>
+                    <b aria-hidden="true">⟶</b>
+                </li>
+                <li data-reveal>
+                    <em>〇四</em>
+                    <strong>度</strong>
+                    <span>绚烂有度。动效永远服务于内容，而不是淹没内容。</span>
+                    <b aria-hidden="true">⟶</b>
+                </li>
+            </ul>
         </section>
 
-        <section class="section-shell publish" id="publish" aria-labelledby="publish-title">
-            <div class="publish-card reveal" data-spotlight>
-                <p class="eyebrow">发布</p>
-                <h2 id="publish-title">CHICHI 的网页，应该让人愿意再看一遍。</h2>
-                <p>这里是 CHICHI 的个人视觉入口：以网页为画布，以中文为骨架，持续记录作品、实验和想法。</p>
-                <a class="button primary magnetic" data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">访问代码主页</a>
-            </div>
+        <section class="finale" id="yin" aria-labelledby="finale-title">
+            <p class="eyebrow r-up" data-reveal>终章 · 印<span class="en">RETURN TO SEA</span></p>
+            <h2 class="finale-title rise-group" data-reveal id="finale-title" aria-label="流，不止息。">
+                <span class="mask" aria-hidden="true"><i style="--d:.0s">流</i></span><span class="mask" aria-hidden="true"><i style="--d:.06s">，</i></span><span class="mask" aria-hidden="true"><i style="--d:.12s">不</i></span><span class="mask" aria-hidden="true"><i style="--d:.18s">止</i></span><span class="mask" aria-hidden="true"><i style="--d:.24s">息</i></span><span class="mask" aria-hidden="true"><i style="--d:.3s">。</i></span>
+            </h2>
+            <p class="finale-lead r-up" data-reveal>
+                万物皆流，无物常驻。这件作品为全球视觉盛宴而作——每一次打开，都是一片新的水。
+            </p>
+            <a class="btn primary magnetic r-up" data-reveal data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">去看源码 ↗</a>
+            <span class="seal" data-seal aria-hidden="true">流</span>
         </section>
     </main>
 
     <footer class="site-footer">
-        <span>CHICHI｜网页造境实验室</span>
-        <span>已完成公网部署｜<span data-year>2026</span></span>
+        <div class="footer-marquee" aria-hidden="true">
+            <div class="footer-track">
+                <span>万物皆流 PANTA RHEI&nbsp;</span>
+                <span>万物皆流 PANTA RHEI&nbsp;</span>
+            </div>
+        </div>
+        <div class="footer-bar">
+            <span>© <b data-year>2026</b> CHICHI</span>
+            <a data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <span>为全球视觉盛宴而作 · 水仍在流</span>
+        </div>
     </footer>
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "CHICHI",
+        "@type": "WebSite",
+        "name": "万物皆流 PANTA RHEI",
         "url": "https://dh666i.github.io/",
-        "sameAs": ["https://github.com/dh666i"]
+        "author": {
+            "@type": "Person",
+            "name": "CHICHI",
+            "sameAs": ["https://github.com/dh666i"]
+        }
     }
     </script>
     <script src="script.js"></script>
