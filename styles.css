@@ -1558,6 +1558,12 @@ body.ready .hero-title .mask i,
 
 /* Product content additions; the original visual system is retained. */
 .hero { min-height: calc(100svh - 36px); }
+.hero .scroll-hint {
+    position: static;
+    transform: none;
+    margin-top: 18px;
+}
+.hero .scroll-hint i { height: 28px; }
 .portfolio .card {
     min-width: 0;
     padding-top: 76px;
