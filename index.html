@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="万物皆流 PANTA RHEI——CHICHI 为全球视觉盛宴打造的实时流体网页艺术：WebGL 流体模拟、液态巨字、五态横卷、涟漪落点与朱砂落印。">
+    <meta name="description" content="迟迟的个人主站。探索迟迟 API、AI 创作工具与桌面应用，查看公开项目的源码、使用说明及上游来源。">
     <meta name="theme-color" content="#06050a">
+    <link rel="canonical" href="https://dh666i.github.io/">
+    <meta property="og:url" content="https://dh666i.github.io/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="CHICHI｜万物皆流 PANTA RHEI">
-    <meta property="og:description" content="这不是一张网页，是一片实时演算的水。移动指针，搅动流光。">
+    <meta property="og:title" content="迟迟 CHICHI｜个人主站">
+    <meta property="og:description" content="探索迟迟 API、ImageBot、Dyfire、AIcoversong、Mineradio 与 BrimDeck，查看产品入口、项目源码和上游来源。">
     <meta property="og:locale" content="zh_CN">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>CHICHI｜万物皆流 PANTA RHEI · 实时流体网页艺术</title>
+    <meta name="twitter:card" content="summary">
+    <title>迟迟 CHICHI｜个人主站 · 产品与公开项目</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d3392b'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23f3efe6' font-family='serif'%3E%E6%B5%81%3C/text%3E%3C/svg%3E">
+    <link media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d3392b'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23f3efe6' font-family='serif'%3E%E8%BF%9F%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
     <noscript>
         <style>
+            .nav-links { display: flex !important; flex-wrap: wrap; }
+            .burger, .clock, .header-side { display: none !important; }
+            .site-header { gap: 8px; }
             .loader, .cursor-dot, .cursor-ring, .bg-fluid, .grain { display: none !important; }
             [data-reveal] { opacity: 1 !important; transform: none !important; }
             .mask i { transform: none !important; }
@@ -49,10 +54,10 @@
         <div class="loader-curtain loader-curtain-top"></div>
         <div class="loader-curtain loader-curtain-bottom"></div>
         <div class="loader-core">
-            <span class="loader-seal">流</span>
+            <span class="loader-seal">迟</span>
             <div class="loader-track"><i data-loader-bar></i></div>
             <div class="loader-meta">
-                <span>引水入境</span>
+                <span>好物迟来</span>
                 <span data-loader-count>00</span>
             </div>
         </div>
@@ -66,18 +71,18 @@
 
     <header class="site-header" data-header>
         <a class="brand magnetic" href="#top" aria-label="回到顶部">
-            <span class="brand-seal" aria-hidden="true">流</span>
+            <span class="brand-seal" aria-hidden="true">迟</span>
             <span class="brand-text">
                 <strong>CHICHI</strong>
-                <small>万物皆流</small>
+                <small>迟迟出品</small>
             </span>
         </a>
         <nav class="nav-links" aria-label="主导航">
             <a href="#yuan" data-scramble>源</a>
-            <a href="#liu" data-scramble>流</a>
-            <a href="#yan" data-scramble>验</a>
-            <a href="#guan" data-scramble>观</a>
-            <a href="#yin" data-scramble>印</a>
+            <a href="#liu" data-scramble>品</a>
+            <a href="#projects" data-scramble>项目</a>
+            <a href="#guan" data-scramble>答</a>
+            <a href="#yin" data-scramble>联</a>
         </nav>
         <div class="header-side">
             <span class="clock" aria-label="北京时间">京 <b data-clock>--:--:--</b></span>
@@ -91,10 +96,10 @@
     <div class="menu" id="menu" data-menu aria-hidden="true">
         <nav class="menu-links" aria-label="全屏导航">
             <a href="#yuan"><em>〇一</em><span>源</span><small>ORIGIN</small></a>
-            <a href="#liu"><em>〇二</em><span>流</span><small>FIVE STATES</small></a>
-            <a href="#yan"><em>〇三</em><span>验</span><small>THE LAB</small></a>
-            <a href="#guan"><em>〇四</em><span>观</span><small>WAYS OF SEEING</small></a>
-            <a href="#yin"><em>〇五</em><span>印</span><small>SEAL</small></a>
+            <a href="#liu"><em>〇二</em><span>品</span><small>PRODUCT</small></a>
+            <a href="#projects"><em>〇三</em><span>集</span><small>PROJECTS</small></a>
+            <a href="#guan"><em>〇四</em><span>答</span><small>QUESTIONS</small></a>
+            <a href="#yin"><em>〇五</em><span>联</span><small>CONTACT</small></a>
         </nav>
         <div class="menu-foot">
             <a data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer"><span data-github-text>@dh666i</span></a>
@@ -104,149 +109,165 @@
 
     <main id="main">
         <section class="hero" id="top" aria-labelledby="hero-title">
-            <p class="hero-kicker r-up" data-reveal>CHICHI · 实时流体网页艺术</p>
-            <ul class="hero-meta r-up" data-reveal>
-                <li>二〇二六</li>
-                <li>实时流体引擎</li>
-                <li>全球视觉盛宴 · 参赛作品</li>
-            </ul>
-            <h1 class="hero-title" id="hero-title" aria-label="万物皆流">
-                <span class="hero-char" style="--fd:0s" aria-hidden="true"><span class="mask"><i style="--d:.08s">万</i></span></span>
-                <span class="hero-char" style="--fd:-3s" aria-hidden="true"><span class="mask"><i style="--d:.18s">物</i></span></span>
-                <span class="hero-char" style="--fd:-6s" aria-hidden="true"><span class="mask"><i style="--d:.28s">皆</i></span></span>
-                <span class="hero-char" style="--fd:-9s" aria-hidden="true"><span class="mask"><i style="--d:.38s">流</i></span></span>
+            <p class="hero-kicker r-up" data-reveal>迟迟 CHICHI · 产品与公开项目</p>
+            <h1 class="hero-title" id="hero-title" aria-label="迟迟出品">
+                <span class="hero-char" style="--fd:0s" aria-hidden="true"><span class="mask"><i style="--d:.08s">迟</i></span></span>
+                <span class="hero-char" style="--fd:-3s" aria-hidden="true"><span class="mask"><i style="--d:.18s">迟</i></span></span>
+                <span class="hero-char" style="--fd:-6s" aria-hidden="true"><span class="mask"><i style="--d:.28s">出</i></span></span>
+                <span class="hero-char" style="--fd:-9s" aria-hidden="true"><span class="mask"><i style="--d:.38s">品</i></span></span>
             </h1>
-            <p class="hero-en r-up" data-reveal>PANTA RHEI — EVERYTHING FLOWS · NOTHING STANDS STILL</p>
+            <p class="hero-en r-up" data-reveal>CHICHI · INDEPENDENT PRODUCTS · MADE WITH CARE</p>
             <p class="hero-lead r-up" data-reveal>
-                这不是一张静态页面，而是一片实时演算的水。WebGL 在屏幕底层解算流体方程——你的每一次移动、每一次点击，都会在夜色里留下流光。
+                我是迟迟。这里收录我的 AI 接入服务、图像与音乐工具，以及参与维护的桌面项目。
             </p>
             <div class="hero-actions r-up" data-reveal>
-                <a class="btn primary magnetic" href="#yuan">入水</a>
-                <a class="btn ghost magnetic" data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">看源码 ↗</a>
+                <a class="btn primary magnetic" href="#projects">浏览公开项目</a>
+                <a class="btn ghost magnetic" href="https://chichiapi.cn" target="_blank" rel="noopener noreferrer">进入迟迟 API ↗</a>
             </div>
-            <p class="hero-hint r-up" data-reveal><i aria-hidden="true"></i>移动指针，搅动这片水 · MOVE TO STIR</p>
 
             <span class="hero-ghost" aria-hidden="true">水</span>
-            <span class="hero-vert hero-vert-l" aria-hidden="true">上善若水</span>
-            <span class="hero-vert hero-vert-r" aria-hidden="true">周行而不殆</span>
+            <span class="hero-vert hero-vert-l" aria-hidden="true">保持好奇</span>
+            <span class="hero-vert hero-vert-r" aria-hidden="true">认真造物</span>
             <svg class="orbit" viewBox="0 0 140 140" aria-hidden="true">
                 <defs>
                     <path id="orbit-path" d="M70 70 m -52 0 a 52 52 0 1 1 104 0 a 52 52 0 1 1 -104 0"></path>
                 </defs>
-                <text class="orbit-text"><textPath href="#orbit-path">PANTA RHEI · 万物皆流 · CHICHI · MMXXVI · </textPath></text>
+                <text class="orbit-text"><textPath href="#orbit-path">CHICHI · 迟迟出品 · BUILD WITH CARE · </textPath></text>
                 <circle class="orbit-dot" cx="70" cy="70" r="2.5"></circle>
             </svg>
-            <a class="scroll-hint" href="#yuan" aria-label="向下滚动，顺流而下">
-                <span>顺流而下</span>
+            <a class="scroll-hint" href="#yuan" aria-label="向下查看，认识迟迟">
+                <span>认识迟迟</span>
                 <i aria-hidden="true"></i>
             </a>
         </section>
 
         <div class="ribbon" aria-hidden="true">
             <div class="ribbon-track">
-                <span>实时流体</span><span>墨光生长</span><span>涟漪落点</span><span>液态巨字</span><span>五态横卷</span><span>朱砂落印</span>
-                <span>实时流体</span><span>墨光生长</span><span>涟漪落点</span><span>液态巨字</span><span>五态横卷</span><span>朱砂落印</span>
+                <span>迟迟 API</span><span>ImageBot</span><span>Dyfire</span><span>AIcoversong</span><span>Mineradio</span><span>BrimDeck</span>
+                <span>迟迟 API</span><span>ImageBot</span><span>Dyfire</span><span>AIcoversong</span><span>Mineradio</span><span>BrimDeck</span>
             </div>
         </div>
 
         <section class="manifesto" id="yuan" data-manifesto aria-labelledby="manifesto-text">
             <div class="manifesto-pin">
                 <p class="eyebrow">第一章 · 源<span class="en">ORIGIN</span></p>
-                <p class="manifesto-text" id="manifesto-text" data-split>上善若水。我把一条<em class="hl">河</em>写进浏览器——指尖所到之处，<em class="hl">墨光生长</em>；目光停驻之地，<em class="hl">水自归静</em>。</p>
-                <p class="manifesto-sign">—— CHICHI · 写于流光之上</p>
+                <p class="manifesto-text" id="manifesto-text" data-split>我是<em class="hl">迟迟</em>。我做 AI 工具，也做<em class="hl">音乐</em>与桌面应用。在这里，你可以打开产品，试试它，也可以读一读它的<em class="hl">源码</em>。</p>
+                <p class="manifesto-sign">—— 迟迟 CHICHI · 保持好奇，持续创造</p>
             </div>
         </section>
 
-        <section class="scenes" id="liu" data-horizontal aria-label="流：五态横卷">
+        <section class="scenes" id="liu" data-horizontal aria-label="品：迟迟 API 产品介绍">
             <div class="pin">
                 <div class="track" data-track>
                     <article class="panel panel-intro">
-                        <p class="eyebrow">第二章 · 流<span class="en">FIVE STATES OF FLOW</span></p>
-                        <h2 class="section-title">一水五相<br>五态横卷</h2>
-                        <p class="panel-hint">顺着滚轮，展开手卷 ⟶</p>
+                        <p class="eyebrow">第二章 · 品<span class="en">FIRST PRODUCT</span></p>
+                        <h2 class="section-title">迟迟 API<br>连接你的 AI</h2>
+                        <p class="panel-hint"><a href="https://chichiapi.cn" target="_blank" rel="noopener noreferrer">CHICHIAPI.CN ↗</a></p>
                     </article>
                     <article class="panel" style="--acc:#7dd3fc">
                         <span class="panel-no">壹</span>
-                        <span class="panel-en">SOURCE</span>
+                        <span class="panel-en">CHICHI API</span>
                         <span class="panel-glyph" aria-hidden="true">源</span>
-                        <h3>一滴落下，万象生长</h3>
-                        <p>所有形状始于一次落下。指针划过之处，墨在夜里抽枝、生长，长成只属于这一秒的图案。</p>
+                        <h3>一个入口，连接灵感</h3>
+                        <p>迟迟的第一个产品：AI API 中转站。连接 GPT、Claude、Gemini 与 Grok，让 AI 走进你的工具、应用与工作流。</p>
                     </article>
                     <article class="panel" style="--acc:#e8442e">
                         <span class="panel-no">贰</span>
-                        <span class="panel-en">SURGE</span>
-                        <span class="panel-glyph" aria-hidden="true">涌</span>
-                        <h3>暗流推着光走</h3>
-                        <p>速度是看不见的手。色彩沿着你的轨迹互相追逐、彼此汇流，快一分则涌，慢一分则漫。</p>
+                        <span class="panel-en">GPT · OPENAI</span>
+                        <span class="panel-glyph" aria-hidden="true">智</span>
+                        <h3>让想法，有所回应</h3>
+                        <p>从对话、写作到代码与应用，在迟迟 API 探索 GPT 系列。具体可用型号及接口能力，以产品站为准。</p>
                     </article>
                     <article class="panel" style="--acc:#8b5cf6">
                         <span class="panel-no">叁</span>
-                        <span class="panel-en">VORTEX</span>
-                        <span class="panel-glyph" aria-hidden="true">漩</span>
-                        <h3>把混乱卷成秩序</h3>
-                        <p>涡旋是水的纪律。朱砂与鎏金在中心交融，搅出第三种颜色——那是只有流体才调得出的色。</p>
+                        <span class="panel-en">CLAUDE · ANTHROPIC</span>
+                        <span class="panel-glyph" aria-hidden="true">思</span>
+                        <h3>为思考，多一种选择</h3>
+                        <p>让 Claude 加入你的创作与开发流程。从实际任务出发，找到适合自己的模型与用法。</p>
                     </article>
                     <article class="panel" style="--acc:#69d6bd">
                         <span class="panel-no">肆</span>
-                        <span class="panel-en">STILL</span>
-                        <span class="panel-glyph" aria-hidden="true">息</span>
-                        <h3>流动的尽头是呼吸</h3>
-                        <p>你停下，水也慢下来。墨色一点点沉底，屏幕重新变深。静，是另一种流。</p>
+                        <span class="panel-en">GEMINI · GOOGLE</span>
+                        <span class="panel-glyph" aria-hidden="true">拓</span>
+                        <h3>让探索，继续向前</h3>
+                        <p>在同一个产品入口了解 Gemini 系列。把不同模型的可能性，带进你的下一次尝试。</p>
                     </article>
                     <article class="panel" style="--acc:#e3a455">
                         <span class="panel-no">伍</span>
-                        <span class="panel-en">RETURN</span>
-                        <span class="panel-glyph" aria-hidden="true">归</span>
-                        <h3>万物皆流，终将归海</h3>
-                        <p>每一次观看都汇入同一片海。卷轴合上之后，水仍在屏幕底下流。</p>
+                        <span class="panel-en">YOUR NEXT IDEA</span>
+                        <span class="panel-glyph" aria-hidden="true">创</span>
+                        <h3>配置你的第一个客户端</h3>
+                        <p>前往迟迟 API，查看可用模型与计费说明，按<a href="https://docs.qq.com/aio/DRkVRSVJIV1B6ZXJq">使用教程</a>配置客户端地址、模型和密钥。</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="craft" id="yan" aria-labelledby="craft-title">
-            <span class="wm" aria-hidden="true">水</span>
+        <section class="craft" id="projects" aria-labelledby="projects-title">
+            <span class="wm" aria-hidden="true">集</span>
             <header class="section-head">
-                <p class="eyebrow r-up" data-reveal>第三章 · 验<span class="en">THE LAB</span></p>
-                <h2 class="section-title r-up" data-reveal id="craft-title">以水为引，六个实验。</h2>
+                <p class="eyebrow r-up" data-reveal>第三章 · 集<span class="en">PUBLIC REPOSITORIES</span></p>
+                <h2 class="section-title r-up" data-reveal id="projects-title">公开项目</h2>
             </header>
-            <div class="bento" data-stagger>
+            <div class="bento portfolio" data-stagger>
                 <article class="card card-a" data-reveal data-tilt>
-                    <span class="card-no">实验 01</span>
-                    <h3>墨 · 实时流体</h3>
-                    <p>整页背景就是它：WebGL 实时解算纳维–斯托克斯方程，128 格的速度场、双缓冲的墨色——指针即笔锋，屏幕即砚池。</p>
-                    <div class="card-demo" aria-hidden="true"><i></i><i></i><i></i></div>
-                    <span class="card-glyph" aria-hidden="true">墨</span>
+                    <span class="card-no">Windows · 图像创作</span>
+                    <span class="card-glyph" aria-hidden="true">图</span>
+                    <h3>ImageBot</h3>
+                    <p>在 Windows 上用文字生成图片，或拖入参考图继续修改。默认接入迟迟 API，生成记录保存在本机。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dh666i/imageBot" aria-label="ImageBot 源码">查看源码 ↗</a>
+                        <a href="https://github.com/dh666i/imageBot/releases/latest">下载 Windows 版 ↗</a>
+                    </div>
                 </article>
                 <article class="card card-b" data-reveal data-tilt>
-                    <span class="card-no">实验 02</span>
-                    <h3>涟 · 落点成环</h3>
-                    <p>点击任意一处：涟漪荡开一圈，水面同时沉下一笔重墨。</p>
-                    <span class="card-glyph" aria-hidden="true">涟</span>
+                    <span class="card-no">Web · 任务管理</span>
+                    <span class="card-glyph" aria-hidden="true">序</span>
+                    <h3>Dyfire</h3>
+                    <p>绑定抖音账号、同步好友并安排续火任务。控制台提供执行记录，也支持自行部署。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dh666i/dyfire" aria-label="Dyfire 源码">查看源码 ↗</a>
+                        <a href="https://dyfire.cn/">打开控制台 ↗</a>
+                    </div>
                 </article>
                 <article class="card card-c" data-reveal data-tilt>
-                    <span class="card-no">实验 03</span>
-                    <h3>字 · 液态文字</h3>
-                    <p>湍流滤镜让首屏巨字像浸在水里，轮廓随波轻轻变形。</p>
-                    <span class="card-glyph" aria-hidden="true">字</span>
+                    <span class="card-no">Windows · 音色转换</span>
+                    <span class="card-glyph" aria-hidden="true">声</span>
+                    <h3>AIcoversong</h3>
+                    <p>录下自己的声音，在本机训练音色，再完成歌曲分离、声音转换和混音试听。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dh666i/AIcoversong" aria-label="AIcoversong 源码">查看源码 ↗</a>
+                        <a href="https://github.com/dh666i/AIcoversong/blob/main/docs/INSTALL.md">安装指南 ↗</a>
+                    </div>
                 </article>
                 <article class="card card-d" data-reveal data-tilt>
-                    <span class="card-no">实验 04</span>
-                    <h3>卷 · 横向手卷</h3>
-                    <p>滚轮被译成卷轴的推进，五态逐幕展开。</p>
-                    <span class="card-glyph" aria-hidden="true">卷</span>
+                    <span class="card-no">Electron · 音乐播放</span>
+                    <span class="card-glyph" aria-hidden="true">乐</span>
+                    <h3>Mineradio</h3>
+                    <p>把天气电台、歌词舞台和粒子视觉放进桌面播放器。基于 XxHuberrr 的原作持续开发。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dh666i/Mineradio" aria-label="Mineradio 源码">查看源码 ↗</a>
+                        <a href="https://github.com/XxHuberrr/Mineradio">上游项目 ↗</a>
+                    </div>
                 </article>
                 <article class="card card-e" data-reveal data-tilt>
-                    <span class="card-no">实验 05</span>
-                    <h3>律 · 克制动效</h3>
-                    <p>磁吸、倾斜、显影，都收在分寸之内，从不喧宾夺主。</p>
-                    <span class="card-glyph" aria-hidden="true">律</span>
+                    <span class="card-no">Windows 11 · 桌面工具</span>
+                    <span class="card-glyph" aria-hidden="true">岛</span>
+                    <h3>BrimDeck</h3>
+                    <p>屏幕顶部的灵动岛，集中展示 AI 编程工具用量、正在播放的音乐和系统状态。基于 MoFeng2223 的原作。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dh666i/BrimDeck" aria-label="BrimDeck 源码">查看源码 ↗</a>
+                        <a href="https://github.com/MoFeng2223/BrimDeck">上游项目 ↗</a>
+                    </div>
                 </article>
                 <article class="card card-f" data-reveal data-tilt>
-                    <span class="card-no">实验 06</span>
-                    <h3>印 · 朱砂收笔</h3>
-                    <p>终幕一方印砸下来，把这一场流动盖进记忆。</p>
-                    <span class="card-glyph" aria-hidden="true">印</span>
+                    <span class="card-no">WebGL · 交互设计</span>
+                    <span class="card-glyph" aria-hidden="true">墨</span>
+                    <h3>迟迟个人主站</h3>
+                    <p>你正在浏览的这个网站。原生 JavaScript 驱动实时流体、液态书法和横向手卷，源码包含完整的静态页面。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dh666i/dh666i.github.io" aria-label="迟迟个人主站 源码">查看源码 ↗</a>
+                    </div>
                 </article>
             </div>
         </section>
@@ -254,61 +275,66 @@
         <section class="rules" id="guan" aria-labelledby="rules-title">
             <span class="wm wm-left" aria-hidden="true">观</span>
             <header class="section-head">
-                <p class="eyebrow r-up" data-reveal>第四章 · 观<span class="en">WAYS OF SEEING</span></p>
-                <h2 class="section-title r-up" data-reveal id="rules-title">观水，四则。</h2>
+                <p class="eyebrow r-up" data-reveal>第四章 · 答<span class="en">GOOD TO KNOW</span></p>
+                <h2 class="section-title r-up" data-reveal id="rules-title">关于迟迟，四问。</h2>
             </header>
             <ul class="rule-list" data-stagger>
                 <li data-reveal>
                     <em>〇一</em>
-                    <strong>形</strong>
-                    <span>水无常形，版式有骨。布局可以流动，秩序不能涣散。</span>
+                    <strong>何</strong>
+                    <span>迟迟是什么？这是我的个人产品空间，迟迟 API 是这里展示的第一个产品。</span>
                     <b aria-hidden="true">⟶</b>
                 </li>
                 <li data-reveal>
                     <em>〇二</em>
-                    <strong>势</strong>
-                    <span>让视线顺流而下。滚动是河道，信息是漂流的灯。</span>
+                    <strong>模</strong>
+                    <span>有哪些模型？官网介绍包含 GPT、Claude、Gemini 和 Grok，具体可用型号以产品站为准。</span>
                     <b aria-hidden="true">⟶</b>
                 </li>
                 <li data-reveal>
                     <em>〇三</em>
-                    <strong>静</strong>
-                    <span>留白是水面。说得越少，倒影越清。</span>
+                    <strong>费</strong>
+                    <span>如何计费？请前往迟迟 API 查看当前价格、额度与使用规则，再按需求选择。</span>
                     <b aria-hidden="true">⟶</b>
                 </li>
                 <li data-reveal>
                     <em>〇四</em>
-                    <strong>度</strong>
-                    <span>绚烂有度。动效永远服务于内容，而不是淹没内容。</span>
+                    <strong>问</strong>
+                    <span>遇到问题怎么办？可以阅读<a href="https://docs.qq.com/aio/DRkVRSVJIV1B6ZXJq">迟迟 API 使用教程</a>，或在对应项目仓库反馈问题。</span>
                     <b aria-hidden="true">⟶</b>
                 </li>
             </ul>
         </section>
 
         <section class="finale" id="yin" aria-labelledby="finale-title">
-            <p class="eyebrow r-up" data-reveal>终章 · 印<span class="en">RETURN TO SEA</span></p>
-            <h2 class="finale-title rise-group" data-reveal id="finale-title" aria-label="流，不止息。">
-                <span class="mask" aria-hidden="true"><i style="--d:.0s">流</i></span><span class="mask" aria-hidden="true"><i style="--d:.06s">，</i></span><span class="mask" aria-hidden="true"><i style="--d:.12s">不</i></span><span class="mask" aria-hidden="true"><i style="--d:.18s">止</i></span><span class="mask" aria-hidden="true"><i style="--d:.24s">息</i></span><span class="mask" aria-hidden="true"><i style="--d:.3s">。</i></span>
+            <p class="eyebrow r-up" data-reveal>终章 · 联<span class="en">KEEP IN TOUCH</span></p>
+            <h2 class="finale-title rise-group" data-reveal id="finale-title" aria-label="创，不止息。">
+                <span class="mask" aria-hidden="true"><i style="--d:.0s">创</i></span><span class="mask" aria-hidden="true"><i style="--d:.06s">，</i></span><span class="mask" aria-hidden="true"><i style="--d:.12s">不</i></span><span class="mask" aria-hidden="true"><i style="--d:.18s">止</i></span><span class="mask" aria-hidden="true"><i style="--d:.24s">息</i></span><span class="mask" aria-hidden="true"><i style="--d:.3s">。</i></span>
             </h2>
             <p class="finale-lead r-up" data-reveal>
-                万物皆流，无物常驻。这件作品为全球视觉盛宴而作——每一次打开，都是一片新的水。
+                产品是想法的开始，也是交流的起点。使用反馈、接入问题，或者新的灵感，欢迎来和迟迟聊聊。
             </p>
-            <a class="btn primary magnetic r-up" data-reveal data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">去看源码 ↗</a>
-            <span class="seal" data-seal aria-hidden="true">流</span>
+            <a class="btn primary magnetic r-up" data-reveal href="https://chichiapi.cn" target="_blank" rel="noopener noreferrer">进入迟迟 API ↗</a>
+            <div class="contact-links r-up" data-reveal>
+                <span>QQ <code>532950976</code><button type="button" data-copy="532950976" aria-label="复制 QQ 号" title="复制 QQ 号" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><use href="assets/copy.svg#copy"/></svg></button></span>
+                <span>微信 <code>_zii_henng</code><button type="button" data-copy="_zii_henng" aria-label="复制微信号" title="复制微信号" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><use href="assets/copy.svg#copy"/></svg></button></span>
+                <span>QQ群 <code>787813942</code><button type="button" data-copy="787813942" aria-label="复制 QQ 群号" title="复制 QQ 群号" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><use href="assets/copy.svg#copy"/></svg></button></span>
+            </div>
+            <span class="seal" data-seal aria-hidden="true">迟</span>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-marquee" aria-hidden="true">
             <div class="footer-track">
-                <span>万物皆流 PANTA RHEI&nbsp;</span>
-                <span>万物皆流 PANTA RHEI&nbsp;</span>
+                <span>迟迟出品 CHICHI&nbsp;</span>
+                <span>迟迟出品 CHICHI&nbsp;</span>
             </div>
         </div>
         <div class="footer-bar">
             <span>© <b data-year>2026</b> CHICHI</span>
             <a data-github-link href="https://github.com/dh666i" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <span>为全球视觉盛宴而作 · 水仍在流</span>
+            <span>独立创造 · 灵感仍在流</span>
         </div>
     </footer>
 
@@ -316,8 +342,9 @@
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "万物皆流 PANTA RHEI",
         "url": "https://dh666i.github.io/",
+        "inLanguage": "zh-CN",
+        "name": "迟迟 CHICHI · 产品与公开项目",
         "author": {
             "@type": "Person",
             "name": "CHICHI",
@@ -325,6 +352,8 @@
         }
     }
     </script>
+    <div class="copy-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <dialog class="copy-dialog" aria-labelledby="copy-title"><h2 id="copy-title">复制联系方式</h2><input readonly aria-label="待复制的联系方式"><form method="dialog"><button class="btn ghost">关闭</button></form></dialog>
     <script src="script.js"></script>
 </body>
 </html>

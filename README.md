@@ -1,35 +1,37 @@
-# CHICHI｜万物皆流 PANTA RHEI
+# 迟迟 CHICHI · 个人主站
 
-> 这不是一张网页，是一片实时演算的水。
+[访问主站](https://dh666i.github.io/) · [浏览公开项目](https://dh666i.github.io/#projects) · [使用迟迟 API](https://chichiapi.cn/)
 
-为全球视觉盛宴打造的实时流体网页艺术。整页背景是一个跑在 GPU 上的
-纳维–斯托克斯流体求解器——指针即笔锋，屏幕即砚池：移动搅出墨光，
-点击落水成涟，停下来水自归静。
+这是迟迟的个人网站源码。主站收录我开发和维护的 AI 工具、媒体应用与桌面项目。首个展示产品是**迟迟 API**，为应用和客户端提供 GPT、Claude、Gemini 与 Grok 等模型的接入入口。[产品使用教程](https://docs.qq.com/aio/DRkVRSVJIV1B6ZXJq)
 
-**线上地址：<https://dh666i.github.io/>**
+## 公开项目
 
-## 看点
+| 项目 | 用途 | 相关入口 |
+| --- | --- | --- |
+| [ImageBot](https://github.com/dh666i/imageBot) | Windows 图片生成与参考图编辑工具，默认接入迟迟 API | [下载](https://github.com/dh666i/imageBot/releases/latest) |
+| [Dyfire](https://github.com/dh666i/dyfire) | 管理抖音好友续火任务、定时执行和历史记录 | [官网](https://dyfire.cn/) |
+| [AIcoversong](https://github.com/dh666i/AIcoversong) | 在 Windows 本机完成录音、音色训练、歌曲转换与混音 | [安装指南](https://github.com/dh666i/AIcoversong/blob/main/docs/INSTALL.md) |
+| [Mineradio](https://github.com/dh666i/Mineradio) | 带天气电台、歌词舞台与粒子视觉的 Electron 音乐播放器 | [原作 · XxHuberrr](https://github.com/XxHuberrr/Mineradio) |
+| [BrimDeck](https://github.com/dh666i/BrimDeck) | Windows 11 灵动岛，汇集 AI 工具用量、媒体和系统状态 | [原作 · MoFeng2223](https://github.com/MoFeng2223/BrimDeck) |
+| [个人主站](https://github.com/dh666i/dh666i.github.io) | WebGL 流体、书法排版与原生浏览器交互 | [在线浏览](https://dh666i.github.io/) |
 
-- **墨 · 实时流体** — WebGL2（自动回退 WebGL1）实现的完整流体管线：
-  平流 → 涡度约束 → 散度 → 雅可比迭代压力求解 → 梯度回减，双缓冲半浮点纹理
-- **涟 · 落点成环** — 点击注入七向墨爆 + DOM 涟漪环
-- **字 · 液态文字** — SVG 湍流位移滤镜让「万物皆流」巨字浸在水中轻轻变形
-- **卷 · 五态横卷** — 源／涌／漩／息／归，滚轮译成卷轴推进（窄屏自动转纵向）
-- **序章逐字点亮** — 钉屏宣言随滚动从暗到亮
-- **印 · 朱砂收笔** — 终幕落印动画收束全场
-- 开场幕布装载、双层自定义指针、磁吸按钮、汉字乱序导航、北京时间时钟
-
-## 工程
-
-- 零依赖、零构建：三个文件（HTML/CSS/JS），GitHub Pages 直接托管
-- `prefers-reduced-motion` 全量降级；无 JS / 无 WebGL 均可读
-- 标签页隐藏暂停渲染；闲置时自动游走墨源，画面永远是活的
-- 移动端：流体降分辨率，横卷转纵向，全屏汉字菜单
+各项目的安装要求、发布版本及许可证见对应仓库。项目问题请在对应仓库反馈，主站的展示或链接问题可提交至[本站 Issues](https://github.com/dh666i/dh666i.github.io/issues)。
 
 ## 本地预览
 
-```powershell
-python -m http.server 4173
+在仓库根目录启动静态服务器：
+
+```sh
+python -m http.server 8000 --bind 127.0.0.1
 ```
 
-访问 <http://localhost:4173>。推送到 `main` 分支后由 GitHub Actions 自动发布。
+打开 <http://127.0.0.1:8000/>。站点采用原生 HTML、CSS 和 JavaScript，无需安装前端依赖。宽屏下的产品横卷在窄屏自动切换为纵向排列，并支持系统的减少动态效果设置。
+
+## 内容维护与发布
+
+- [index.html](index.html) 包含产品入口、项目卡片和搜索及分享摘要。目录以静态 HTML 呈现，离线或 GitHub API 限流时也可阅读。
+- [styles.css](styles.css) 定义排版、断点和动效。[script.js](script.js) 负责 WebGL 流体、卷轴和菜单交互。
+- 新增或更名公开仓库时，请同时更新首页 `#projects` 区块和上表，核对上游署名、下载及文档链接。
+- GitHub Pages 从 `main` 分支的根目录发布。[.nojekyll](.nojekyll) 让 Pages 直接托管静态文件。
+
+复制图标来自 Lucide，详见[图标许可证](assets/lucide-LICENSE)。

@@ -1,5 +1,5 @@
 /* ==========================================================
-   CHICHI · 万物皆流 PANTA RHEI — 实时流体网页艺术
+   迟迟 CHICHI · 独立产品空间（保留原版流体与交互）
    ========================================================== */
 
 const profile = {
@@ -1136,15 +1136,21 @@ function initSeal() {
 /* ---------- 署名 ---------- */
 
 function initConsoleSignature() {
-    console.log('%c流 CHICHI · 万物皆流 PANTA RHEI', 'font-size:22px;font-weight:900;color:#e8442e;');
-    console.log('%c这不是一张网页，是一片实时演算的水。', 'color:#e3a455;letter-spacing:.2em;');
+    console.log('%c迟 CHICHI · 迟迟出品', 'font-size:22px;font-weight:900;color:#e8442e;');
+    console.log('%c把好奇写进代码，把想法做成产品。', 'color:#e3a455;letter-spacing:.2em;');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     applyProfile();
     initClock();
     initLoader();
-    initFluid();
+    // Decorative GPU effects are optional on browsers with limited WebGL support.
+    try {
+        initFluid();
+    } catch (error) {
+        document.querySelector('[data-fluid]')?.remove();
+        console.warn('WebGL background unavailable', error);
+    }
     initRipples();
     initCursor();
     initTouchPointer();
@@ -1161,4 +1167,46 @@ document.addEventListener('DOMContentLoaded', () => {
     initMagnetic();
     initSeal();
     initConsoleSignature();
+});
+
+// Copy public contact details, including a local-file clipboard fallback.
+document.addEventListener("DOMContentLoaded", () => {
+  const toast = document.querySelector('.copy-toast');
+  const dialog = document.querySelector('.copy-dialog');
+  let toastTimer;
+  document.querySelectorAll('[data-copy]').forEach((button) => {
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      const value = button.dataset.copy;
+      let copied = false;
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(value);
+        copied = true;
+      } catch {
+        // Local file previews may not expose the asynchronous clipboard API.
+        const field = document.createElement('textarea');
+        field.value = value;
+        field.style.cssText = 'position:fixed;left:-9999px;top:0';
+        document.body.append(field);
+        field.select();
+        try { copied = document.execCommand('copy'); } catch { copied = false; }
+        field.remove();
+        button.focus();
+      }
+      if (!copied) {
+        const input = dialog.querySelector('input');
+        input.value = value;
+        dialog.showModal();
+        input.select();
+        return;
+      }
+      clearTimeout(toastTimer);
+      toast.textContent = `已复制：${value}`;
+      toast.classList.add('visible');
+      toastTimer = setTimeout(() => toast.classList.remove('visible'), 2600);
+    });
+  });
+
+
 });
