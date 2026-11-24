@@ -1,6 +1,6 @@
 # 迟迟 CHICHI · 个人主站
 
-[访问主站](https://dh666i.github.io/) · [浏览公开项目](https://dh666i.github.io/#projects) · [使用迟迟 API](https://chichiapi.cn/)
+[访问主站](https://dh666i.github.io/) · [山水版作品集](https://dh666i.github.io/v2/) · [浏览公开项目](https://dh666i.github.io/#projects) · [使用迟迟 API](https://chichiapi.cn/)
 
 这是迟迟的个人网站源码。主站收录我开发和维护的 AI 工具、媒体应用与桌面项目。首个展示产品是**迟迟 API**，为应用和客户端提供 GPT、Claude、Gemini 与 Grok 等模型的接入入口。[产品使用教程](https://docs.qq.com/aio/DRkVRSVJIV1B6ZXJq)
 
@@ -12,7 +12,7 @@
 | [Dyfire](https://github.com/dh666i/dyfire) | 管理抖音好友续火任务、定时执行和历史记录 | [官网](https://dyfire.cn/) |
 | [AIcoversong](https://github.com/dh666i/AIcoversong) | 在 Windows 本机完成录音、音色训练、歌曲转换与混音 | [安装指南](https://github.com/dh666i/AIcoversong/blob/main/docs/INSTALL.md) |
 | [Mineradio](https://github.com/dh666i/Mineradio) | 带天气电台、歌词舞台与粒子视觉的 Electron 音乐播放器 | [原作 · XxHuberrr](https://github.com/XxHuberrr/Mineradio) |
-| [BrimDeck](https://github.com/dh666i/BrimDeck) | Windows 11 灵动岛，汇集 AI 工具用量、媒体和系统状态 | [原作 · MoFeng2223](https://github.com/MoFeng2223/BrimDeck) |
+| [岛仔 Daozai](https://github.com/dh666i/daozai) | Windows 桌面信息岛，支持录屏、截图 OCR、音乐与日程 | [下载](https://github.com/dh666i/daozai/releases/latest) |
 | [个人主站](https://github.com/dh666i/dh666i.github.io) | WebGL 流体、书法排版与原生浏览器交互 | [在线浏览](https://dh666i.github.io/) |
 
 各项目的安装要求、发布版本及许可证见对应仓库。项目问题请在对应仓库反馈，主站的展示或链接问题可提交至[本站 Issues](https://github.com/dh666i/dh666i.github.io/issues)。

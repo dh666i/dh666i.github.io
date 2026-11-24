@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="迟迟的个人主站 V2。探索迟迟 API、AI 创作工具与桌面应用，查看公开项目的源码、使用说明及上游来源。">
+    <meta name="theme-color" content="#08070c">
+    <title>迟迟 CHICHI｜个人主站 · 东方新工坊</title>
+    <link rel="preload" href="assets/brush.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="canonical" href="https://dh666i.github.io/v2/">
+    <meta property="og:title" content="迟迟出品 · 产品与公开项目">
+    <meta property="og:image" content="https://dh666i.github.io/v2/assets/mi-landscape.webp">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d3392b'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23f3efe6' font-family='serif'%3E%E8%BF%9F%3C/text%3E%3C/svg%3E">
+    <script>
+        (() => {
+            try {
+                const saved = localStorage.getItem('chichi-theme');
+                if (saved === 'light' || saved === 'dark') {
+                    document.documentElement.setAttribute('data-theme', saved);
+                }
+            } catch {}
+        })();
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <noscript><style>[data-reveal],.final-seal{opacity:1;transform:none}.acc-panel{grid-template-rows:1fr}.playground-grid,.filter-bar,.theme-toggle,.burger{display:none}.contact-pill{cursor:text}</style></noscript>
+</head>
+<body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <!-- 实时水墨流体背景（随滚动自动衰减，聚焦内容） -->
+    <div class="paper-grain" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><i data-progress></i></div>
+
+    <!-- 顶部导航 -->
+    <header class="site-header" data-header>
+        <div class="header-inner">
+            <a class="brand" href="#top" aria-label="回到顶部">
+                <span class="brand-seal" aria-hidden="true">迟</span>
+                <span class="brand-meta">
+                    <strong>CHICHI</strong>
+                    <small>迟迟出品</small>
+                </span>
+            </a>
+
+            <nav class="nav-links" aria-label="主导航">
+                <a href="#api">迟迟 API</a>
+                <a href="#projects">公开项目</a>
+                <a href="#yuan">关于</a>
+                <a href="#faq">答疑</a>
+                <a href="#contact">联系</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="切换墨夜或宣纸主题" title="切换墨夜 / 宣纸主题">
+                    <span class="theme-dot" aria-hidden="true"></span>
+                    <span class="theme-label" data-theme-label>墨夜</span>
+                </button>
+                <a class="gh-pill" href="https://github.com/dh666i" target="_blank" rel="noopener noreferrer">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.11.78-.25.78-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.19-1.49 3.15-1.18 3.15-1.18.63 1.58.24 2.75.12 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.18c0 .31.21.67.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                    <span>GitHub</span>
+                </a>
+                <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="打开菜单">
+                    <i></i><i></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 移动端抽屉菜单 -->
+    <div inert class="mobile-menu" id="mobile-menu" data-menu aria-hidden="true">
+        <nav class="mobile-nav" aria-label="移动端导航">
+            <a href="#api"><em>01</em><span>迟迟 API · PRODUCT</span></a>
+            <a href="#projects"><em>02</em><span>公开项目 · WORKS</span></a>
+            <a href="#yuan"><em>03</em><span>关于迟迟 · ABOUT</span></a>
+            <a href="#faq"><em>04</em><span>关于四问 · FAQ</span></a>
+            <a href="#contact"><em>05</em><span>保持联系 · CONTACT</span></a>
+        </nav>
+        <div class="mobile-foot">
+            <a href="https://github.com/dh666i" target="_blank" rel="noopener noreferrer">@dh666i ↗</a>
+            <a href="https://chichiapi.cn" target="_blank" rel="noopener noreferrer">chichiapi.cn ↗</a>
+        </div>
+    </div>
+
+    <main id="main">
+        <!-- 第一幕：首屏 -->
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="ink-plate" aria-hidden="true"><img src="assets/mi-landscape.webp" alt="" width="1158" height="893" fetchpriority="high"></div>
+            <canvas class="bg-fluid" data-fluid aria-hidden="true"></canvas>
+            <div class="hero-inner">
+                <p class="studio-byline" data-enter><i aria-hidden="true"></i> CHICHI <span>/</span> 独立开发者</p>
+
+                <h1 class="hero-title" id="hero-title" aria-label="迟迟出品">
+                    <span class="char-reveal" style="--d: 0.04s">迟</span>
+                    <span class="char-reveal" style="--d: 0.11s">迟</span>
+                    <span class="char-reveal" style="--d: 0.18s">出</span>
+                    <span class="char-reveal" style="--d: 0.25s">品</span>
+                </h1>
+
+                <p class="hero-sub" data-enter style="--d: 0.28s">
+                    从一个 AI 接口，到自己的图像、音乐与桌面工具。<br>我是迟迟，这是我的作品集。
+                </p>
+
+                <div class="hero-cta" data-enter style="--d: 0.36s">
+                    <a class="btn primary" href="https://chichiapi.cn" target="_blank" rel="noopener noreferrer">
+                        <span>进入迟迟 API</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                    <a class="btn secondary" href="#projects">
+                        <span>浏览作品 ↓</span>
+                    </a>
+                </div>
+
+            </div>
+            <a class="art-credit" href="https://www.clevelandart.org/art/1955.37.8" target="_blank" rel="noopener noreferrer">查士标 · 四季山水图册 <span>1684 ↗</span></a>
+        </section>
+
+
+
+        <!-- 第二章：品（迟迟 API 交互式产品展台） -->
+        <section class="api-section" id="api" aria-labelledby="api-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span>首作</span><small>CHICHI API</small></p>
+                    <div class="section-head-row">
+                        <h2 class="section-title" id="api-title">迟迟 API</h2>
+                        <p class="section-desc">
+                            在客户端接入 GPT、Claude、Gemini 与 Grok。选择模型系列，查看请求写法和本地模拟的响应。
+                        </p>
+                    </div>
+                </header>
+
+                <div class="playground-grid" data-reveal>
+                    <!-- 左侧：模型矩阵选择器 -->
+                    <div class="model-panel">
+                        <div class="panel-label">选择模型系列，查看调用示例</div>
+                        <div class="model-list" role="group" aria-label="支持的模型系列">
+                            <button class="model-item is-active" type="button" aria-pressed="true" data-model="gpt">
+                                <div class="model-item-head">
+                                    <span class="model-dot" style="--dot: #e8442e"></span>
+                                    <strong>GPT · OpenAI</strong>
+                                    <span class="model-tag">综合主力</span>
+                                </div>
+                                <p>对话、写作、代码与多模态理解，适配绝大多数第三方客户端与插件。</p>
+                            </button>
+
+                            <button class="model-item" type="button" aria-pressed="false" data-model="claude">
+                                <div class="model-item-head">
+                                    <span class="model-dot" style="--dot: #8b5cf6"></span>
+                                    <strong>Claude · Anthropic</strong>
+                                    <span class="model-tag">代码与长文</span>
+                                </div>
+                                <p>细腻的中文表达与极强的工程编码能力，适合深度思考与复杂重构任务。</p>
+                            </button>
+
+                            <button class="model-item" type="button" aria-pressed="false" data-model="gemini">
+                                <div class="model-item-head">
+                                    <span class="model-dot" style="--dot: #10b981"></span>
+                                    <strong>Gemini · Google</strong>
+                                    <span class="model-tag">超长上下文</span>
+                                </div>
+                                <p>原生多模态与超长上下文窗口，轻松处理长文档分析与跨领域探索。</p>
+                            </button>
+
+                            <button class="model-item" type="button" aria-pressed="false" data-model="grok">
+                                <div class="model-item-head">
+                                    <span class="model-dot" style="--dot: #d97706"></span>
+                                    <strong>Grok · xAI</strong>
+                                    <span class="model-tag">犀利直觉</span>
+                                </div>
+                                <p>直接、敏锐的回答风格，为创意发散与技术调研提供另一种视角。</p>
+                            </button>
+                        </div>
+
+                        <div class="api-foot-actions">
+                            <a class="btn primary sm" href="https://chichiapi.cn" target="_blank" rel="noopener noreferrer">前往 chichiapi.cn ↗</a>
+                            <a class="btn ghost sm" href="https://docs.qq.com/aio/DRkVRSVJIV1B6ZXJq" target="_blank" rel="noopener noreferrer">阅读使用教程 ↗</a>
+                        </div>
+                        <p class="api-footnote">将示例里的模型 ID 换成你在产品站选择的型号，并设置 CHICHI_API_KEY 环境变量。</p>
+                    </div>
+
+                    <!-- 右侧：交互式终端代码与模拟流式响应 -->
+                    <div class="terminal-card" data-spotlight>
+                        <div class="terminal-bar">
+                            <div class="terminal-dots" aria-hidden="true">
+                                <i></i><i></i><i></i>
+                            </div>
+                            <div class="lang-tabs" role="group" aria-label="代码示例语言">
+                                <button class="lang-tab is-active" type="button" aria-pressed="true" data-lang="curl">cURL</button>
+                                <button class="lang-tab" type="button" aria-pressed="false" data-lang="python">Python</button>
+                                <button class="lang-tab" type="button" aria-pressed="false" data-lang="node">Node.js</button>
+                            </div>
+                            <button class="code-copy-btn" type="button" data-copy-code aria-label="复制示例代码">
+                                <svg class="icon-copy" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                                <span data-copy-code-text>复制</span>
+                            </button>
+                        </div>
+
+                        <pre class="code-block"><code data-code-view></code></pre>
+
+                        <div class="terminal-output">
+                            <div class="output-head">
+                                <span class="output-badge">
+                                    <i class="pulse-dot" aria-hidden="true"></i>
+                                    <span data-output-model>gpt-4o</span> · 响应预览
+                                </span>
+                                <button class="run-btn" type="button" data-run-demo>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                    <span>模拟流式响应</span>
+                                </button>
+                            </div>
+                            <div class="output-body" data-output-body>
+                                <span class="output-placeholder">点击「模拟流式响应」，预览统一接口返回的流式输出效果…</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三章：集（带微型动态 UI 预览的公开项目画廊） -->
+        <section class="projects-section" id="projects" aria-labelledby="projects-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span>作品目录</span><small>PUBLIC REPOSITORIES</small></p>
+                    <div class="section-head-row projects-head-row">
+                        <h2 class="section-title" id="projects-title">公开项目</h2>
+                        <div class="filter-bar" role="group" aria-label="按类别筛选项目">
+                            <button class="filter-pill is-active" type="button" aria-pressed="true" data-filter="all">全部 <em>6</em></button>
+                            <button class="filter-pill" type="button" aria-pressed="false" data-filter="ai">AI 工具 <em>2</em></button>
+                            <button class="filter-pill" type="button" aria-pressed="false" data-filter="desktop">桌面应用 <em>2</em></button>
+                            <button class="filter-pill" type="button" aria-pressed="false" data-filter="web">Web &amp; 设计 <em>2</em></button>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="project-grid" data-project-grid>
+                    <!-- 1. ImageBot -->
+                    <article class="proj-card proj-wide" id="proj-imagebot" data-category="ai" data-reveal data-spotlight>
+                        <div class="proj-preview preview-imagebot" aria-hidden="true">
+                            <div class="mock-window">
+                                <div class="mock-canvas">
+                                    <span class="mock-tag">参考图已载入</span>
+                                </div>
+                                <div class="mock-prompt">
+                                    <span class="mock-prompt-text">水墨丹青风格，山间薄雾与朱砂印章…</span>
+                                    <span class="mock-gen-btn">生成</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-meta">
+                                <span class="proj-platform">Windows · 图像创作</span>
+                                <span class="origin-badge is-original">原创</span>
+                            </div>
+                            <h3>ImageBot</h3>
+                            <p>在 Windows 上用文字生成图片，或拖入参考图继续修改。默认接入迟迟 API，所有生成记录保存在本机。</p>
+                            <div class="proj-links">
+                                <a href="https://github.com/dh666i/imageBot" target="_blank" rel="noopener noreferrer">查看源码 ↗</a>
+                                <a class="link-accent" href="https://github.com/dh666i/imageBot/releases/latest" target="_blank" rel="noopener noreferrer">下载 Windows 版 ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 2. Daozai -->
+                    <article class="proj-card" id="proj-daozai" data-category="desktop" data-reveal data-spotlight>
+                        <div class="proj-preview preview-brimdeck" aria-hidden="true">
+                            <div class="mock-screen-top">
+                                <div class="dynamic-island">
+                                    <div class="island-compact">
+                                        <span class="island-dot"></span>
+                                        <span>岛仔 · 音乐</span>
+                                        <span class="island-wave"><i></i><i></i><i></i></span>
+                                    </div>
+                                    <div class="island-expand">
+                                        <div class="island-row">
+                                            <span>屏幕录制</span>
+                                            <b>00:24</b>
+                                        </div>
+                                        <div class="island-bar"><i style="width: 68%"></i></div>
+                                        <div class="island-row muted">
+                                            <span>正在播放 · 夜曲</span>
+                                            <span>剪贴板</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="hover-cue">桌面信息岛</span>
+                            </div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-meta">
+                                <span class="proj-platform">Windows · 桌面工具</span>
+                                <span class="origin-badge is-fork">独立维护</span>
+                            </div>
+                            <h3>岛仔 Daozai</h3>
+                            <p>把录屏、截图 OCR、图片剪贴板、音乐与日程收进 Windows 屏幕边缘的信息岛。</p>
+                            <div class="proj-links">
+                                <a href="https://github.com/dh666i/daozai" target="_blank" rel="noopener noreferrer">查看源码 ↗</a>
+                                <a href="https://github.com/dh666i/daozai/releases/latest" target="_blank" rel="noopener noreferrer">下载岛仔 ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 3. Mineradio -->
+                    <article class="proj-card" id="proj-mineradio" data-category="desktop" data-reveal data-spotlight>
+                        <div class="proj-preview preview-mineradio" aria-hidden="true">
+                            <div class="mock-radio">
+                                <div class="radio-disc"><span></span></div>
+                                <div class="radio-info">
+                                    <span class="radio-weather">☁ 阵雨电台 · 98.6 FM</span>
+                                    <span class="radio-lyric">听雨声落在窗台边缘</span>
+                                    <div class="radio-eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-meta">
+                                <span class="proj-platform">Electron · 音乐播放</span>
+                                <span class="origin-badge is-fork">基于原作维护</span>
+                            </div>
+                            <h3>Mineradio</h3>
+                            <p>把天气电台、歌词舞台和粒子视觉放进桌面播放器。基于 XxHuberrr 的原作持续开发。</p>
+                            <div class="proj-links">
+                                <a href="https://github.com/dh666i/Mineradio" target="_blank" rel="noopener noreferrer">查看源码 ↗</a>
+                                <a href="https://github.com/XxHuberrr/Mineradio" target="_blank" rel="noopener noreferrer">上游项目 ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 4. AIcoversong -->
+                    <article class="proj-card" id="proj-aicoversong" data-category="ai" data-reveal data-spotlight>
+                        <div class="proj-preview preview-coversong" aria-hidden="true">
+                            <div class="mock-stems">
+                                <div class="stem-row">
+                                    <span>人声</span>
+                                    <div class="stem-wave vocal"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                                </div>
+                                <div class="stem-row">
+                                    <span>伴奏</span>
+                                    <div class="stem-wave inst"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-meta">
+                                <span class="proj-platform">Windows · 音色转换</span>
+                                <span class="origin-badge is-original">原创</span>
+                            </div>
+                            <h3>AIcoversong</h3>
+                            <p>录下自己的声音，在本机训练音色，再完成歌曲分离、声音转换和混音试听。</p>
+                            <div class="proj-links">
+                                <a href="https://github.com/dh666i/AIcoversong" target="_blank" rel="noopener noreferrer">查看源码 ↗</a>
+                                <a class="link-accent" href="https://github.com/dh666i/AIcoversong/blob/main/docs/INSTALL.md" target="_blank" rel="noopener noreferrer">安装指南 ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 5. Dyfire -->
+                    <article class="proj-card" id="proj-dyfire" data-category="web" data-reveal data-spotlight>
+                        <div class="proj-preview preview-dyfire" aria-hidden="true">
+                            <div class="mock-console">
+                                <div class="console-row">
+                                    <i class="c-dot ok"></i>
+                                    <span>08:00 定时续火任务</span>
+                                    <em>已执行</em>
+                                </div>
+                                <div class="console-row">
+                                    <i class="c-dot live"></i>
+                                    <span>同步好友列表 (24)</span>
+                                    <em>运行中</em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-meta">
+                                <span class="proj-platform">Web · 任务管理</span>
+                                <span class="origin-badge is-original">原创</span>
+                            </div>
+                            <h3>Dyfire</h3>
+                            <p>绑定抖音账号、同步好友并安排续火任务。控制台提供执行记录，也支持自行部署。</p>
+                            <div class="proj-links">
+                                <a href="https://github.com/dh666i/dyfire" target="_blank" rel="noopener noreferrer">查看源码 ↗</a>
+                                <a class="link-accent" href="https://dyfire.cn/" target="_blank" rel="noopener noreferrer">打开控制台 ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 6. 迟迟个人主站 -->
+                    <article class="proj-card proj-wide" id="proj-site" data-category="web" data-reveal data-spotlight>
+                        <div class="proj-preview preview-site" aria-hidden="true">
+                            <div class="mock-atelier">
+                                <span class="atelier-seal">迟</span>
+                                <div class="atelier-swatches">
+                                    <span style="background: #08070c" title="墨夜"></span>
+                                    <span style="background: #f4efe6" title="宣纸"></span>
+                                    <span style="background: #d93b2b" title="朱砂"></span>
+                                    <span style="background: #c99449" title="暗金"></span>
+                                </div>
+                                <span class="atelier-spec">WebGL · 墨夜/宣纸 · Zero-Deps</span>
+                            </div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-meta">
+                                <span class="proj-platform">WebGL · 交互设计</span>
+                                <span class="origin-badge is-original">原创</span>
+                            </div>
+                            <h3>迟迟个人主站</h3>
+                            <p>你正在浏览的这个网站。零前端构建依赖，原生 JavaScript 驱动水墨流体、双主题视觉系统与交互展台。</p>
+                            <div class="proj-links">
+                                <a href="https://github.com/dh666i/dh666i.github.io" target="_blank" rel="noopener noreferrer">查看源码 ↗</a>
+                                <a href="../index.html">对比原版 V1 ↗</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第一章：源（精简宣言，拒绝冗长滚动税） -->
+        <section class="manifesto-section" id="yuan" aria-labelledby="manifesto-text">
+            <div class="container">
+                <p class="eyebrow" data-reveal><span>关于迟迟</span><small>ORIGIN</small></p>
+                <p class="manifesto-text" id="manifesto-text" data-manifesto-text>我叫<em class="hl">迟迟</em>。ImageBot 用来画图，AIcoversong 用来唱歌，岛仔放在桌面。做完以后，我把它们的<em class="hl">源码</em>也留在这里。</p>
+                <div class="manifesto-meta" data-reveal>
+                    <span>保持好奇，认真造物</span>
+                    <i aria-hidden="true"></i>
+                    <span>CHICHI STUDIO</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第四章：答（真正可交互的手风琴问答） -->
+        <section class="faq-section" id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span>04 · 答</span><small>GOOD TO KNOW</small></p>
+                    <h2 class="section-title" id="faq-title">关于迟迟，四问。</h2>
+                </header>
+
+                <div class="accordion" data-accordion>
+                    <div class="acc-item is-open" data-reveal>
+                        <button class="acc-trigger" type="button" aria-expanded="true" aria-controls="faq-panel-1" id="faq-btn-1">
+                            <span class="acc-index">〇一</span>
+                            <strong class="acc-key">何</strong>
+                            <span class="acc-q">迟迟是什么？</span>
+                            <span class="acc-plus" aria-hidden="true"></span>
+                        </button>
+                        <div class="acc-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
+                            <div class="acc-panel-inner">
+                                <p>这是迟迟的个人产品与开源项目空间。这里收录我日常开发的 AI 工具、媒体应用与桌面小工具，<strong>迟迟 API</strong> 是其中首个对外提供的核心服务。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item" data-reveal>
+                        <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-btn-2">
+                            <span class="acc-index">〇二</span>
+                            <strong class="acc-key">模</strong>
+                            <span class="acc-q">迟迟 API 支持哪些模型？</span>
+                            <span class="acc-plus" aria-hidden="true"></span>
+                        </button>
+                        <div class="acc-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
+                            <div class="acc-panel-inner">
+                                <p>官网目前涵盖 <strong>GPT、Claude、Gemini 与 Grok</strong> 等主流系列模型，采用标准 OpenAI 兼容格式接入。具体可用型号与最新上线列表，请以 <a href="https://chichiapi.cn" target="_blank" rel="noopener noreferrer">chichiapi.cn ↗</a> 实时展示为准。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item" data-reveal>
+                        <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-btn-3">
+                            <span class="acc-index">〇三</span>
+                            <strong class="acc-key">费</strong>
+                            <span class="acc-q">如何计费与查看额度？</span>
+                            <span class="acc-plus" aria-hidden="true"></span>
+                        </button>
+                        <div class="acc-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3">
+                            <div class="acc-panel-inner">
+                                <p>请直接前往 <a href="https://chichiapi.cn" target="_blank" rel="noopener noreferrer">迟迟 API 官网 ↗</a> 查看当前各模型的费率、额度规则与使用说明，按实际使用需求选择即可。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item" data-reveal>
+                        <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-4" id="faq-btn-4">
+                            <span class="acc-index">〇四</span>
+                            <strong class="acc-key">问</strong>
+                            <span class="acc-q">遇到接入或项目问题怎么办？</span>
+                            <span class="acc-plus" aria-hidden="true"></span>
+                        </button>
+                        <div class="acc-panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
+                            <div class="acc-panel-inner">
+                                <p>API 配置问题可先查阅 <a href="https://docs.qq.com/aio/DRkVRSVJIV1B6ZXJq" target="_blank" rel="noopener noreferrer">迟迟 API 使用教程 ↗</a>；公开项目的功能建议或 Bug 可直接在对应 GitHub 仓库提交 Issue，或通过下方联系方式直接找到我。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 终章：联（印笺名片 + 朱砂落印） -->
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+            <div class="container contact-inner">
+                <p class="eyebrow" data-reveal><span>终章 · 联</span><small>KEEP IN TOUCH</small></p>
+                <h2 class="contact-title" id="contact-title" data-reveal>联系迟迟</h2>
+                <p class="contact-lead" data-reveal>
+                    产品反馈或 API 接入问题，可以通过 QQ、微信或交流群找到我。
+                </p>
+
+                <div class="contact-cta" data-reveal>
+                    <a class="btn primary" href="https://chichiapi.cn" target="_blank" rel="noopener noreferrer">进入迟迟 API ↗</a>
+                    <a class="btn secondary" href="https://github.com/dh666i" target="_blank" rel="noopener noreferrer">访问 GitHub 主页 ↗</a>
+                </div>
+
+                <!-- 整块可点击复制的印笺名片 -->
+                <div class="contact-cards" data-reveal>
+                    <button class="contact-pill" type="button" data-copy="532950976" data-copy-label="QQ 号">
+                        <span class="pill-meta">
+                            <small>QQ</small>
+                            <code>532950976</code>
+                        </span>
+                        <span class="pill-action" aria-hidden="true">
+                            <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+                        </span>
+                    </button>
+
+                    <button class="contact-pill" type="button" data-copy="_zii_henng" data-copy-label="微信号">
+                        <span class="pill-meta">
+                            <small>微信</small>
+                            <code>_zii_henng</code>
+                        </span>
+                        <span class="pill-action" aria-hidden="true">
+                            <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+                        </span>
+                    </button>
+
+                    <button class="contact-pill" type="button" data-copy="787813942" data-copy-label="QQ 交流群">
+                        <span class="pill-meta">
+                            <small>QQ 交流群</small>
+                            <code>787813942</code>
+                        </span>
+                        <span class="pill-action" aria-hidden="true">
+                            <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+                        </span>
+                    </button>
+                </div>
+
+                <div class="final-seal" data-seal aria-hidden="true">迟</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-bar">
+            <span>© <b data-year>2026</b> CHICHI · 迟迟出品</span>
+            <div class="footer-links">
+                <a href="https://github.com/dh666i" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                <a href="https://chichiapi.cn" target="_blank" rel="noopener noreferrer">迟迟 API ↗</a>
+                <a href="#top">回到顶部 ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copy-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <dialog class="copy-dialog" aria-labelledby="copy-dialog-title">
+        <h2 id="copy-dialog-title">手动复制</h2>
+        <textarea readonly rows="6" aria-label="待复制内容"></textarea>
+        <form method="dialog">
+            <button class="btn secondary sm">关闭</button>
+        </form>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
